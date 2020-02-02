@@ -47,11 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="alarmLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="alarmLog.Designer.cs">
+      <DependentUpon>alarmLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loginLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="loginLog.Designer.cs">
+      <DependentUpon>loginLog.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,6 +72,12 @@
     </Compile>
     <Compile Include="Sensor.Designer.cs">
       <DependentUpon>Sensor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sensorLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sensorLog.Designer.cs">
+      <DependentUpon>sensorLog.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

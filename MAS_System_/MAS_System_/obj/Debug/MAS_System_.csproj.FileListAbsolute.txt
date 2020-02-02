@@ -8,3 +8,13 @@ C:\Users\cokea\source\repos\MAS_System_\MAS_System_\bin\Debug\MAS_System_.exe
 C:\Users\cokea\source\repos\MAS_System_\MAS_System_\bin\Debug\MAS_System_.pdb
 C:\Users\cokea\source\repos\MAS_System_\MAS_System_\obj\Debug\MAS_System_.exe
 C:\Users\cokea\source\repos\MAS_System_\MAS_System_\obj\Debug\MAS_System_.pdb
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\bin\Debug\MAS_System_.exe.config
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\bin\Debug\MAS_System_.exe
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\bin\Debug\MAS_System_.pdb
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\obj\Debug\MAS_System_.csprojAssemblyReference.cache
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\obj\Debug\MAS_System_.Login.resources
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\obj\Debug\MAS_System_.Properties.Resources.resources
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\obj\Debug\MAS_System_.Sensor.resources
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\obj\Debug\MAS_System_.csproj.GenerateResource.cache
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\obj\Debug\MAS_System_.exe
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\obj\Debug\MAS_System_.pdb

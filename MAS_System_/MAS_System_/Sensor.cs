@@ -253,6 +253,7 @@ namespace MAS_System_
         private void humBW_DoWork(object sender, DoWorkEventArgs e)
         {
             Random rand1 = new Random();
+            //limt vars 
             double[] sensMax = { 300.00, 100.00, 900.00 };
             double[] sensMin = { 32.00, 0.00, 0.00 };
             BackgroundWorker worker1 = (BackgroundWorker)sender;
@@ -265,16 +266,11 @@ namespace MAS_System_
                 }
                 else
                 {
-
-                  
-                        double sensor = (rand1.NextDouble() * (sensMax[1] - sensMin[1])) + 1;
-                        int sensConvert = Convert.ToInt32(sensor);
-                        worker1.ReportProgress(sensConvert);
-
-                                       //temp set
-
-                    //passing the 
-
+                    // doing a rand function into a double 
+                    double sensor = (rand1.NextDouble() * (sensMax[1] - sensMin[1])) + 1;
+                    int sensConvert = Convert.ToInt32(sensor);
+                    //passing the var that was genrated
+                    worker1.ReportProgress(sensConvert);
                     //sleeping the system for 60 seconds 
                     System.Threading.Thread.Sleep(60000);
 
@@ -292,6 +288,32 @@ namespace MAS_System_
         {
             string varConvert = e.Result.ToString();
             AppendHumTxt(varConvert);
+        }
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void sensorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sensorLog formOpen = new sensorLog();
+            this.Hide();
+            formOpen.Show();
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            loginLog formOpen = new loginLog();
+            this.Hide();
+            formOpen.Show();
+        }
+
+        private void alarmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            alarmLog formOpen = new alarmLog();
+            this.Hide();
+            formOpen.Show();
         }
     }
 }

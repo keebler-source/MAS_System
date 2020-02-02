@@ -24,6 +24,7 @@ namespace MAS_System_
             this.Hide();
             sensor.Show();
             
+            
         }
     }
 }
