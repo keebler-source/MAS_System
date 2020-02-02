@@ -16,5 +16,27 @@ namespace MAS_System_
         {
             InitializeComponent();
         }
+
+
+        private void alarmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            alarmLog formOpen = new alarmLog();
+            this.Hide();
+            formOpen.Show();
+        }
+
+        private void senorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Sensor formOpen = new Sensor();
+            this.Hide();
+            formOpen.Show();
+        }
+
+        private void sensorToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            sensorLog formOpen = new sensorLog();
+            this.Hide();
+            formOpen.Show();
+        }
     }
 }
