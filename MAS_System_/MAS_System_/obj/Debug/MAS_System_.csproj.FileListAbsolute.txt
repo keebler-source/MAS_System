@@ -21,3 +21,7 @@ C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\obj\Debug\MAS_Sys
 C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\obj\Debug\MAS_System_.alarmLog.resources
 C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\obj\Debug\MAS_System_.loginLog.resources
 C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\obj\Debug\MAS_System_.sensorLog.resources
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\bin\Debug\MAS_Database.mdf
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\bin\Debug\MAS_Database_log.ldf
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\bin\Debug\MAS_System.mdf
+C:\Users\cokea\Source\Repos\MAS_System\MAS_System_\MAS_System_\bin\Debug\MAS_System_log.ldf
