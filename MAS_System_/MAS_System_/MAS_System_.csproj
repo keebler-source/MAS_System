@@ -81,6 +81,11 @@
     <Compile Include="loginLog.Designer.cs">
       <DependentUpon>loginLog.cs</DependentUpon>
     </Compile>
+    <Compile Include="MAS_TEAM_3_477DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MAS_TEAM_3_477DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sensor.cs">
@@ -121,6 +126,17 @@
     </EmbeddedResource>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
+    </None>
+    <None Include="MAS_TEAM_3_477DataSet1.xsc">
+      <DependentUpon>MAS_TEAM_3_477DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="MAS_TEAM_3_477DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MAS_TEAM_3_477DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MAS_TEAM_3_477DataSet1.xss">
+      <DependentUpon>MAS_TEAM_3_477DataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
