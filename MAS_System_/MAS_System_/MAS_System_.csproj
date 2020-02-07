@@ -81,16 +81,6 @@
     <Compile Include="loginLog.Designer.cs">
       <DependentUpon>loginLog.cs</DependentUpon>
     </Compile>
-    <Compile Include="MAS_DatabaseDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MAS_DatabaseDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="MAS_SystemDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MAS_SystemDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sensor.cs">
@@ -132,28 +122,6 @@
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
-    <None Include="MAS_DatabaseDataSet.xsc">
-      <DependentUpon>MAS_DatabaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MAS_DatabaseDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MAS_DatabaseDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MAS_DatabaseDataSet.xss">
-      <DependentUpon>MAS_DatabaseDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MAS_SystemDataSet.xsc">
-      <DependentUpon>MAS_SystemDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MAS_SystemDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MAS_SystemDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MAS_SystemDataSet.xss">
-      <DependentUpon>MAS_SystemDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -178,15 +146,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MAS_System.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="MAS_System_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>MAS_System.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
