@@ -32,22 +32,21 @@ namespace MAS_System_
             sda.Fill(dt);
             if (dt.Rows.Count == 1)
             {
-                /* if the validation is true open sensor form */
+                DateTime dateTime = DateTime.Now;
+                string insert = "Insert into dbo.[loginLog]([username],[datetime])VAULES('" + userNameTxt.Text + "','" + dateTime.ToString() + "')'";
+                SqlDataAdapter adapter = new SqlDataAdapter(insert,sqlCon);
+                /* 
+                 
+                 SqlDataAdapter logininsert = new SqlDataAdapter(insert, sqlCon);
+                 /* if the validation is true open sensor form */
                 Sensor sensor = new Sensor();
                 this.Hide();
                 sensor.Show();
-                sda.Dispose();
             }
             else
             {
                 MessageBox.Show("Invalid username and or password");
             }
-                       
-              
-            
-           
-            
-            
         }
     }
 }

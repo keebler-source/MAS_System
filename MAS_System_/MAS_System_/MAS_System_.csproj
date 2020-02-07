@@ -180,13 +180,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MAS_Database.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="MAS_Database_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>MAS_Database.mdf</DependentUpon>
-    </Content>
     <Content Include="MAS_System.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

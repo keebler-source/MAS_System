@@ -146,28 +146,50 @@ namespace MAS_System_
 
         private void AppendTextBox(string v)
         {
-            string query = "INSERT INTO sensorLog(vaule, sensorName )VALUES(" + v + "Temp" + ")";
-
             if (InvokeRequired)
             {
                 this.Invoke(new Action<string>(AppendTextBox), new object[] { v });
                 return;
             }
             tempLvlTxt.Text = v;
-            SqlConnection connection = new SqlConnection(conn);
-            
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MAS_System.mdf;Integrated Security=True;Connect Timeout=30");
+            string query = "insert into sensorLog ([SensorName], [SensorVal]) values(@name,@val)";
+
+            using (sqlCon)
+            {
+                try
+                {
+                    sqlCon.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, sqlCon))
+                    {
+                        // Create and set the parameters values 
+                        
+                        cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = tempLBL.Text.Trim();
+                        cmd.Parameters.Add("@val", SqlDbType.NVarChar).Value = tempLvlTxt.Text.Trim();
+
+                        // Let's ask the db to execute the query
+                        int rowsAdded = cmd.ExecuteNonQuery();
+                        if (rowsAdded > 0)
+                            MessageBox.Show("Row inserted!!");
+                        else
+                            // Well this should never really happen
+                            MessageBox.Show("No row inserted");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:");
+                }
+            }
+               
+            SqlDataAdapter sda = new SqlDataAdapter(query, sqlCon);
             try
             {
-               
-                connection.Open();
-                command = new SqlCommand(query, connection);
-                SqlDataAdapter dadapter = new SqlDataAdapter(query, connection);
-
-                
-               
-                dataReader.Close();
-                command.Dispose();
-                connection.Close();
+                sqlCon.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.InsertCommand = new SqlCommand(query,sqlCon);
+                adapter.InsertCommand.ExecuteNonQuery();
+                MessageBox.Show("Row inserted !! ");
             }
             catch (Exception ex)
             {
@@ -198,11 +220,7 @@ namespace MAS_System_
         }
 
 
-        private void Sensor_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            closed = true;
-
-        }
+        
 
         private void smokeBW_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -292,6 +310,8 @@ namespace MAS_System_
 
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            Login form = new Login();
+            form.Close();
             this.Close();
         }
 
