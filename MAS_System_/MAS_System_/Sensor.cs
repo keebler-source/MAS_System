@@ -13,18 +13,18 @@ using System.Windows.Forms;
 
 namespace MAS_System_
 {
-    
+
     public partial class Sensor : Form
     {
         double tempLvl;
         double smokeLvl;
         double humLvl;
-        double humThresh= 55;
+        double humThresh = 55;
         double tempThresh = 60.5;
-        double smokeThresh= 200;
+        double smokeThresh = 200;
         double tempMax = 300.00;
-        double humMax=100.00;
-        double smokeMax =900.00;
+        double humMax = 100.00;
+        double smokeMax = 900.00;
         string[] sensor = new string[3];
         bool closed = false;
         private SqlCommand command;
@@ -33,7 +33,7 @@ namespace MAS_System_
         private SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
         //SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
         static private string conn = "Server=tcp:mas-team-3-477.database.windows.net,1433;Database=MAS_TEAM_3_477;User ID=TEAM3MASSQL;Password=sqldatabasecis477!;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-        private SqlConnection myConn= new SqlConnection(conn);
+        private SqlConnection myConn = new SqlConnection(conn);
 
         public Sensor()
         {
@@ -83,11 +83,11 @@ namespace MAS_System_
         }
 
 
-       
 
-        
 
-       
+
+
+
         private void bw_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             string varConvert = e.ProgressPercentage.ToString();
@@ -136,7 +136,7 @@ namespace MAS_System_
 
         }
 
-       void ThreadStart()
+        void ThreadStart()
         {
             if (!this.bw.IsBusy)
             {
@@ -152,52 +152,46 @@ namespace MAS_System_
                 return;
             }
             tempLvlTxt.Text = v;
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\MAS_System.mdf;Integrated Security=True;Connect Timeout=30");
-            string query = "insert into sensorLog ([SensorName], [SensorVal]) values(@name,@val)";
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=mas-team-3-477.database.windows.net;Initial Catalog=MAS_TEAM_3_477;User ID=TEAM3MASSQL;Password=sqldatabasecis477!;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            string insert = "insert into sensorLogs (sensorId, sensorName, sensorValue, dateTime) values (@sensorId,@sensorName,@sensorValue,@dateTime)";
+            //checking how man rows that are in the table 
 
+            string pkcheck = "select * from sensorLogs";
+            SqlDataAdapter sda1 = new SqlDataAdapter(pkcheck, sqlCon);
+            DataTable vdt = new DataTable(); //this is creating a virtual table  
+            sda1.Fill(vdt);
+            int pkgen = vdt.Rows.Count;
             using (sqlCon)
             {
-                try
-                {
-                    sqlCon.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, sqlCon))
-                    {
-                        // Create and set the parameters values 
-                        
-                        cmd.Parameters.Add("@name", SqlDbType.NVarChar).Value = tempLBL.Text.Trim();
-                        cmd.Parameters.Add("@val", SqlDbType.NVarChar).Value = tempLvlTxt.Text.Trim();
 
-                        // Let's ask the db to execute the query
-                        int rowsAdded = cmd.ExecuteNonQuery();
-                        if (rowsAdded > 0)
-                            MessageBox.Show("Row inserted!!");
-                        else
-                            // Well this should never really happen
-                            MessageBox.Show("No row inserted");
-                    }
-                }
-                catch (Exception ex)
+
+                using (SqlCommand cmd = new SqlCommand(insert, sqlCon))
                 {
-                    MessageBox.Show("Error:");
+
+                    DateTime dateTime = DateTime.Now;
+
+                    //SqlCommand cmd = new SqlCommand(insert, sqlCon);
+
+                    cmd.Parameters.AddWithValue("@sensorID", pkgen + 3000);
+                    cmd.Parameters.AddWithValue("@sensorName", tempLBL.Text.Trim());
+                    cmd.Parameters.AddWithValue("@sensorValue", tempLvlTxt.Text.Trim());
+                    cmd.Parameters.AddWithValue("@dateTime", dateTime.ToString());
+                    sqlCon.Open();
+                    int result = cmd.ExecuteNonQuery();
+
+                    if (result < 0)
+                        MessageBox.Show("Error inserting data into Database!");
+
                 }
             }
-               
-            SqlDataAdapter sda = new SqlDataAdapter(query, sqlCon);
-            try
-            {
-                sqlCon.Open();
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.InsertCommand = new SqlCommand(query,sqlCon);
-                adapter.InsertCommand.ExecuteNonQuery();
-                MessageBox.Show("Row inserted !! ");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Can not open connection ! ");
-            }
-           
-           
+
         }
+
+
+
+
+
+
 
         private void AppendHumTxt(string v)
         {
@@ -207,6 +201,38 @@ namespace MAS_System_
                 return;
             }
             humityTxt.Text = v;
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=mas-team-3-477.database.windows.net;Initial Catalog=MAS_TEAM_3_477;User ID=TEAM3MASSQL;Password=sqldatabasecis477!;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            string insert = "insert into sensorLogs (sensorId, sensorName, sensorValue, dateTime) values (@sensorId,@sensorName,@sensorValue,@dateTime)";
+            //checking how man rows that are in the table 
+
+            string pkcheck = "select * from sensorLogs";
+            SqlDataAdapter sda1 = new SqlDataAdapter(pkcheck, sqlCon);
+            DataTable vdt = new DataTable(); //this is creating a virtual table  
+            sda1.Fill(vdt);
+            int pkgen = vdt.Rows.Count;
+            using (sqlCon)
+            {
+
+
+                using (SqlCommand cmd = new SqlCommand(insert, sqlCon))
+                {
+
+                    DateTime dateTime = DateTime.Now;
+
+                    //SqlCommand cmd = new SqlCommand(insert, sqlCon);
+
+                    cmd.Parameters.AddWithValue("@sensorID", pkgen + 3000);
+                    cmd.Parameters.AddWithValue("@sensorName", humLbl.Text.Trim());
+                    cmd.Parameters.AddWithValue("@sensorValue", humityTxt.Text.Trim());
+                    cmd.Parameters.AddWithValue("@dateTime", dateTime.ToString());
+                    sqlCon.Open();
+                    int result = cmd.ExecuteNonQuery();
+
+                    if (result < 0)
+                        Console.WriteLine("Error inserting data into Database!");
+
+                }
+            }
         }
         private void AppendSmokeTxt(string v)
         {
@@ -216,11 +242,42 @@ namespace MAS_System_
                 return;
             }
             smokeLvlTxt.Text = v;
-          
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=mas-team-3-477.database.windows.net;Initial Catalog=MAS_TEAM_3_477;User ID=TEAM3MASSQL;Password=sqldatabasecis477!;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            string insert = "insert into sensorLogs (sensorId, sensorName, sensorValue, dateTime) values (@sensorId,@sensorName,@sensorValue,@dateTime)";
+            //checking how man rows that are in the table 
+
+            string pkcheck = "select * from sensorLogs";
+            SqlDataAdapter sda1 = new SqlDataAdapter(pkcheck, sqlCon);
+            DataTable vdt = new DataTable(); //this is creating a virtual table  
+            sda1.Fill(vdt);
+            int pkgen = vdt.Rows.Count;
+            using (sqlCon)
+            {
+
+
+                using (SqlCommand cmd = new SqlCommand(insert, sqlCon))
+                {
+
+                    DateTime dateTime = DateTime.Now;
+
+                    //SqlCommand cmd = new SqlCommand(insert, sqlCon);
+
+                    cmd.Parameters.AddWithValue("@sensorID", pkgen + 3000);
+                    cmd.Parameters.AddWithValue("@sensorName", smokeLbl.Text.Trim());
+                    cmd.Parameters.AddWithValue("@sensorValue", smokeLvlTxt.Text.Trim());
+                    cmd.Parameters.AddWithValue("@dateTime", dateTime.ToString());
+                    sqlCon.Open();
+                    int result = cmd.ExecuteNonQuery();
+
+                    if (result < 0)
+                        Console.WriteLine("Error inserting data into Database!");
+
+                }
+            }
         }
 
 
-        
+
 
         private void smokeBW_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -228,7 +285,7 @@ namespace MAS_System_
             double[] sensMax = { 300.00, 100.00, 900.00 };
             double[] sensMin = { 32.00, 0.00, 0.00 };
             BackgroundWorker worker2 = (BackgroundWorker)sender;
-           
+
             do
             {
                 if (!this.bw.IsBusy)
@@ -238,13 +295,13 @@ namespace MAS_System_
                 else
                 {
 
-                   
-                       double sensor = (rand1.NextDouble() * (sensMax[2] - sensMin[2])) + 1;
-                       int sensConvert = Convert.ToInt32(sensor);
-                       sender = sensConvert;
-                       worker2.ReportProgress(sensConvert);
 
-                   
+                    double sensor = (rand1.NextDouble() * (sensMax[2] - sensMin[2])) + 1;
+                    int sensConvert = Convert.ToInt32(sensor);
+                    sender = sensConvert;
+                    worker2.ReportProgress(sensConvert);
+
+
                     //temp set
 
                     //passing the 
@@ -258,7 +315,7 @@ namespace MAS_System_
 
         private void smokeBW_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-           string varConvert = e.ProgressPercentage.ToString();
+            string varConvert = e.ProgressPercentage.ToString();
             AppendSmokeTxt(varConvert);
         }
 
@@ -334,6 +391,11 @@ namespace MAS_System_
             alarmLog formOpen = new alarmLog();
             this.Hide();
             formOpen.Show();
+        }
+
+        private void thresholdToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
