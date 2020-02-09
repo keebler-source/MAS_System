@@ -160,7 +160,7 @@ namespace MAS_System_
             SqlDataAdapter sda1 = new SqlDataAdapter(pkcheck, sqlCon);
             DataTable vdt = new DataTable(); //this is creating a virtual table  
             sda1.Fill(vdt);
-            int pkgen = vdt.Rows.Count;
+            int pkgen = vdt.Rows.Count+1;
             using (sqlCon)
             {
 
@@ -209,7 +209,7 @@ namespace MAS_System_
             SqlDataAdapter sda1 = new SqlDataAdapter(pkcheck, sqlCon);
             DataTable vdt = new DataTable(); //this is creating a virtual table  
             sda1.Fill(vdt);
-            int pkgen = vdt.Rows.Count;
+            int pkgen = vdt.Rows.Count + 1;
             using (sqlCon)
             {
 
@@ -250,7 +250,7 @@ namespace MAS_System_
             SqlDataAdapter sda1 = new SqlDataAdapter(pkcheck, sqlCon);
             DataTable vdt = new DataTable(); //this is creating a virtual table  
             sda1.Fill(vdt);
-            int pkgen = vdt.Rows.Count;
+            int pkgen = vdt.Rows.Count + 1;
             using (sqlCon)
             {
 

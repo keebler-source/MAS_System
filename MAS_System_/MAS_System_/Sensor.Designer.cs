@@ -31,8 +31,8 @@
             this.tempLvlTxt = new System.Windows.Forms.TextBox();
             this.resetBtn = new System.Windows.Forms.Button();
             this.tempLBL = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.smokeLbl = new System.Windows.Forms.Label();
+            this.humLbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,18 +60,16 @@
             // 
             // tempLvlTxt
             // 
-            this.tempLvlTxt.Location = new System.Drawing.Point(69, 52);
-            this.tempLvlTxt.Margin = new System.Windows.Forms.Padding(1);
+            this.tempLvlTxt.Location = new System.Drawing.Point(219, 148);
             this.tempLvlTxt.Name = "tempLvlTxt";
-            this.tempLvlTxt.Size = new System.Drawing.Size(79, 20);
+            this.tempLvlTxt.Size = new System.Drawing.Size(242, 44);
             this.tempLvlTxt.TabIndex = 0;
             // 
             // resetBtn
             // 
-            this.resetBtn.Location = new System.Drawing.Point(69, 211);
-            this.resetBtn.Margin = new System.Windows.Forms.Padding(1);
+            this.resetBtn.Location = new System.Drawing.Point(219, 601);
             this.resetBtn.Name = "resetBtn";
-            this.resetBtn.Size = new System.Drawing.Size(178, 22);
+            this.resetBtn.Size = new System.Drawing.Size(564, 63);
             this.resetBtn.TabIndex = 1;
             this.resetBtn.Text = "Reset";
             this.resetBtn.UseVisualStyleBackColor = true;
@@ -79,101 +77,90 @@
             // tempLBL
             // 
             this.tempLBL.AutoSize = true;
-            this.tempLBL.Location = new System.Drawing.Point(9, 52);
-            this.tempLBL.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.tempLBL.Location = new System.Drawing.Point(29, 148);
             this.tempLBL.Name = "tempLBL";
-            this.tempLBL.Size = new System.Drawing.Size(51, 13);
+            this.tempLBL.Size = new System.Drawing.Size(148, 37);
             this.tempLBL.TabIndex = 2;
             this.tempLBL.Text = "Temp Lvl";
             // 
-            // label2
+            // smokeLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 99);
-            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Smoke Lvl";
+            this.smokeLbl.AutoSize = true;
+            this.smokeLbl.Location = new System.Drawing.Point(19, 282);
+            this.smokeLbl.Name = "smokeLbl";
+            this.smokeLbl.Size = new System.Drawing.Size(165, 37);
+            this.smokeLbl.TabIndex = 3;
+            this.smokeLbl.Text = "Smoke Lvl";
             // 
-            // label3
+            // humLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 149);
-            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Humity Lvl";
+            this.humLbl.AutoSize = true;
+            this.humLbl.Location = new System.Drawing.Point(19, 424);
+            this.humLbl.Name = "humLbl";
+            this.humLbl.Size = new System.Drawing.Size(165, 37);
+            this.humLbl.TabIndex = 4;
+            this.humLbl.Text = "Humity Lvl";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(171, 52);
-            this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label4.Location = new System.Drawing.Point(542, 148);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 13);
+            this.label4.Size = new System.Drawing.Size(208, 37);
             this.label4.TabIndex = 5;
             this.label4.Text = "Temp Thresh";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(171, 99);
-            this.label5.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label5.Location = new System.Drawing.Point(542, 282);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.Size = new System.Drawing.Size(225, 37);
             this.label5.TabIndex = 6;
             this.label5.Text = "Smoke Thresh";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(171, 149);
-            this.label6.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label6.Location = new System.Drawing.Point(542, 424);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 13);
+            this.label6.Size = new System.Drawing.Size(225, 37);
             this.label6.TabIndex = 7;
             this.label6.Text = "Humity Thresh";
             // 
             // smokeLvlTxt
             // 
-            this.smokeLvlTxt.Location = new System.Drawing.Point(69, 99);
-            this.smokeLvlTxt.Margin = new System.Windows.Forms.Padding(1);
+            this.smokeLvlTxt.Location = new System.Drawing.Point(219, 282);
             this.smokeLvlTxt.Name = "smokeLvlTxt";
-            this.smokeLvlTxt.Size = new System.Drawing.Size(79, 20);
+            this.smokeLvlTxt.Size = new System.Drawing.Size(242, 44);
             this.smokeLvlTxt.TabIndex = 8;
             // 
             // humityTxt
             // 
-            this.humityTxt.Location = new System.Drawing.Point(69, 148);
-            this.humityTxt.Margin = new System.Windows.Forms.Padding(1);
+            this.humityTxt.Location = new System.Drawing.Point(219, 421);
             this.humityTxt.Name = "humityTxt";
-            this.humityTxt.Size = new System.Drawing.Size(79, 20);
+            this.humityTxt.Size = new System.Drawing.Size(242, 44);
             this.humityTxt.TabIndex = 9;
             // 
             // tempThreshTxt
             // 
-            this.tempThreshTxt.Location = new System.Drawing.Point(247, 52);
-            this.tempThreshTxt.Margin = new System.Windows.Forms.Padding(1);
+            this.tempThreshTxt.Location = new System.Drawing.Point(782, 148);
             this.tempThreshTxt.Name = "tempThreshTxt";
-            this.tempThreshTxt.Size = new System.Drawing.Size(75, 20);
+            this.tempThreshTxt.Size = new System.Drawing.Size(229, 44);
             this.tempThreshTxt.TabIndex = 10;
             // 
             // smokeThreshTxt
             // 
-            this.smokeThreshTxt.Location = new System.Drawing.Point(247, 96);
-            this.smokeThreshTxt.Margin = new System.Windows.Forms.Padding(1);
+            this.smokeThreshTxt.Location = new System.Drawing.Point(782, 273);
             this.smokeThreshTxt.Name = "smokeThreshTxt";
-            this.smokeThreshTxt.Size = new System.Drawing.Size(75, 20);
+            this.smokeThreshTxt.Size = new System.Drawing.Size(229, 44);
             this.smokeThreshTxt.TabIndex = 11;
             // 
             // humityThreshTxt
             // 
-            this.humityThreshTxt.Location = new System.Drawing.Point(244, 146);
-            this.humityThreshTxt.Margin = new System.Windows.Forms.Padding(1);
+            this.humityThreshTxt.Location = new System.Drawing.Point(773, 416);
             this.humityThreshTxt.Name = "humityThreshTxt";
-            this.humityThreshTxt.Size = new System.Drawing.Size(75, 20);
+            this.humityThreshTxt.Size = new System.Drawing.Size(229, 44);
             this.humityThreshTxt.TabIndex = 12;
             // 
             // tempBW
@@ -184,6 +171,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(48, 48);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logsToolStripMenuItem,
@@ -192,8 +180,8 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(2, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(378, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
+            this.menuStrip1.Size = new System.Drawing.Size(1197, 58);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -203,19 +191,19 @@
             this.thresholdToolStripMenuItem,
             this.userToolStripMenuItem});
             this.logsToolStripMenuItem.Name = "logsToolStripMenuItem";
-            this.logsToolStripMenuItem.Size = new System.Drawing.Size(39, 22);
+            this.logsToolStripMenuItem.Size = new System.Drawing.Size(108, 52);
             this.logsToolStripMenuItem.Text = "Edit";
             // 
             // thresholdToolStripMenuItem
             // 
             this.thresholdToolStripMenuItem.Name = "thresholdToolStripMenuItem";
-            this.thresholdToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.thresholdToolStripMenuItem.Size = new System.Drawing.Size(375, 66);
             this.thresholdToolStripMenuItem.Text = "Threshold";
             // 
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(375, 66);
             this.userToolStripMenuItem.Text = "User";
             // 
             // logsToolStripMenuItem1
@@ -225,34 +213,34 @@
             this.loginToolStripMenuItem,
             this.alarmToolStripMenuItem});
             this.logsToolStripMenuItem1.Name = "logsToolStripMenuItem1";
-            this.logsToolStripMenuItem1.Size = new System.Drawing.Size(44, 22);
+            this.logsToolStripMenuItem1.Size = new System.Drawing.Size(122, 52);
             this.logsToolStripMenuItem1.Text = "Logs";
             // 
             // sensorToolStripMenuItem
             // 
             this.sensorToolStripMenuItem.Name = "sensorToolStripMenuItem";
-            this.sensorToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.sensorToolStripMenuItem.Size = new System.Drawing.Size(325, 66);
             this.sensorToolStripMenuItem.Text = "Sensor";
             this.sensorToolStripMenuItem.Click += new System.EventHandler(this.sensorToolStripMenuItem_Click);
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(325, 66);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // alarmToolStripMenuItem
             // 
             this.alarmToolStripMenuItem.Name = "alarmToolStripMenuItem";
-            this.alarmToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.alarmToolStripMenuItem.Size = new System.Drawing.Size(325, 66);
             this.alarmToolStripMenuItem.Text = "Alarm";
             this.alarmToolStripMenuItem.Click += new System.EventHandler(this.alarmToolStripMenuItem_Click);
             // 
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(47, 22);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(134, 52);
             this.resetToolStripMenuItem.Text = "Reset";
             // 
             // exitToolStripMenuItem
@@ -260,13 +248,13 @@
             this.exitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem1});
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(104, 52);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(274, 66);
             this.exitToolStripMenuItem1.Text = "Exit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -284,9 +272,9 @@
             // 
             // Sensor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 269);
+            this.ClientSize = new System.Drawing.Size(1197, 766);
             this.Controls.Add(this.humityThreshTxt);
             this.Controls.Add(this.smokeThreshTxt);
             this.Controls.Add(this.tempThreshTxt);
@@ -295,14 +283,13 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.humLbl);
+            this.Controls.Add(this.smokeLbl);
             this.Controls.Add(this.tempLBL);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.tempLvlTxt);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "Sensor";
             this.Text = "Sensor";
             this.Load += new System.EventHandler(this.Sensor_Load);
@@ -318,8 +305,8 @@
         private System.Windows.Forms.TextBox tempLvlTxt;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Label tempLBL;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label smokeLbl;
+        private System.Windows.Forms.Label humLbl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
