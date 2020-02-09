@@ -31,8 +31,8 @@
             this.tempLvlTxt = new System.Windows.Forms.TextBox();
             this.resetBtn = new System.Windows.Forms.Button();
             this.tempLBL = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.smokeLbl = new System.Windows.Forms.Label();
+            this.humLbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -86,25 +86,25 @@
             this.tempLBL.TabIndex = 2;
             this.tempLBL.Text = "Temp Lvl";
             // 
-            // label2
+            // smokeLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 99);
-            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Smoke Lvl";
+            this.smokeLbl.AutoSize = true;
+            this.smokeLbl.Location = new System.Drawing.Point(6, 99);
+            this.smokeLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.smokeLbl.Name = "smokeLbl";
+            this.smokeLbl.Size = new System.Drawing.Size(57, 13);
+            this.smokeLbl.TabIndex = 3;
+            this.smokeLbl.Text = "Smoke Lvl";
             // 
-            // label3
+            // humLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 149);
-            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Humity Lvl";
+            this.humLbl.AutoSize = true;
+            this.humLbl.Location = new System.Drawing.Point(6, 149);
+            this.humLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.humLbl.Name = "humLbl";
+            this.humLbl.Size = new System.Drawing.Size(56, 13);
+            this.humLbl.TabIndex = 4;
+            this.humLbl.Text = "Humity Lvl";
             // 
             // label4
             // 
@@ -295,8 +295,8 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.humLbl);
+            this.Controls.Add(this.smokeLbl);
             this.Controls.Add(this.tempLBL);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.tempLvlTxt);
@@ -318,8 +318,8 @@
         private System.Windows.Forms.TextBox tempLvlTxt;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Label tempLBL;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label smokeLbl;
+        private System.Windows.Forms.Label humLbl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

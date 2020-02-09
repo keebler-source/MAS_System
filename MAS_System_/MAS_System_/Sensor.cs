@@ -203,6 +203,7 @@ namespace MAS_System_
             humityTxt.Text = v;
             SqlConnection sqlCon = new SqlConnection(@"Data Source=mas-team-3-477.database.windows.net;Initial Catalog=MAS_TEAM_3_477;User ID=TEAM3MASSQL;Password=sqldatabasecis477!;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             string insert = "insert into sensorLogs (sensorId, sensorName, sensorValue, dateTime) values (@sensorId,@sensorName,@sensorValue,@dateTime)";
+            
             //checking how man rows that are in the table 
 
             string pkcheck = "select * from sensorLogs";
@@ -262,7 +263,7 @@ namespace MAS_System_
 
                     //SqlCommand cmd = new SqlCommand(insert, sqlCon);
 
-                    cmd.Parameters.AddWithValue("@sensorID", pkgen + 3000);
+                    cmd.Parameters.AddWithValue("@sensorID", pkgen + 3001);
                     cmd.Parameters.AddWithValue("@sensorName", smokeLbl.Text.Trim());
                     cmd.Parameters.AddWithValue("@sensorValue", smokeLvlTxt.Text.Trim());
                     cmd.Parameters.AddWithValue("@dateTime", dateTime.ToString());
