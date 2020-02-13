@@ -40,10 +40,18 @@ namespace MAS_System_
 
         private void sensorLog_Load(object sender, EventArgs e)
         {
-            
+            // TODO: This line of code loads data into the 'mAS_TEAM_3_477DataSet.tempSensor' table. You can move, or remove it, as needed.
+            this.tempSensorTableAdapter.Fill(this.mAS_TEAM_3_477DataSet.tempSensor);
+            // TODO: This line of code loads data into the 'mAS_TEAM_3_477DataSet.smokeSensor' table. You can move, or remove it, as needed.
+            this.smokeSensorTableAdapter.Fill(this.mAS_TEAM_3_477DataSet.smokeSensor);
+            // TODO: This line of code loads data into the 'mAS_TEAM_3_477DataSet.humiditySensor' table. You can move, or remove it, as needed.
+            this.humiditySensorTableAdapter.Fill(this.mAS_TEAM_3_477DataSet.humiditySensor);
+
             // TODO: This line of code loads data into the 'mAS_TEAM_3_477DataSet.alarmLog' table. You can move, or remove it, as needed.
             this.alarmLogTableAdapter.Fill(this.mAS_TEAM_3_477DataSet.alarmLog);
 
         }
+
+       
     }
 }

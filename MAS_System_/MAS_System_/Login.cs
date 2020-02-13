@@ -62,7 +62,7 @@ namespace MAS_System_
 
                 /* if the validation is true open sensor form */
                 Sensor sensor = new Sensor();
-                this.Hide();
+                
                 sensor.Show();
                 
             }
