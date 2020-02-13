@@ -55,5 +55,16 @@ namespace MAS_System_.Properties {
                 return ((string)(this["MAS_TEAM_3_477ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=massystem477.database.windows.net;Initial Catalog=MAS_TEAM_3_477;User" +
+            " ID=TEAM3MASSQL;Password=sqldatabasecis477!")]
+        public string MAS_TEAM_3_477ConnectionString1 {
+            get {
+                return ((string)(this["MAS_TEAM_3_477ConnectionString1"]));
+            }
+        }
     }
 }

@@ -181,7 +181,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1197, 58);
+            this.menuStrip1.Size = new System.Drawing.Size(1197, 63);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -191,19 +191,20 @@
             this.thresholdToolStripMenuItem,
             this.userToolStripMenuItem});
             this.logsToolStripMenuItem.Name = "logsToolStripMenuItem";
-            this.logsToolStripMenuItem.Size = new System.Drawing.Size(108, 52);
+            this.logsToolStripMenuItem.Size = new System.Drawing.Size(108, 57);
             this.logsToolStripMenuItem.Text = "Edit";
             // 
             // thresholdToolStripMenuItem
             // 
             this.thresholdToolStripMenuItem.Name = "thresholdToolStripMenuItem";
-            this.thresholdToolStripMenuItem.Size = new System.Drawing.Size(375, 66);
+            this.thresholdToolStripMenuItem.Size = new System.Drawing.Size(538, 66);
             this.thresholdToolStripMenuItem.Text = "Threshold";
+            this.thresholdToolStripMenuItem.Click += new System.EventHandler(this.thresholdToolStripMenuItem_Click_1);
             // 
             // userToolStripMenuItem
             // 
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(375, 66);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(538, 66);
             this.userToolStripMenuItem.Text = "User";
             // 
             // logsToolStripMenuItem1
@@ -213,7 +214,7 @@
             this.loginToolStripMenuItem,
             this.alarmToolStripMenuItem});
             this.logsToolStripMenuItem1.Name = "logsToolStripMenuItem1";
-            this.logsToolStripMenuItem1.Size = new System.Drawing.Size(122, 52);
+            this.logsToolStripMenuItem1.Size = new System.Drawing.Size(122, 57);
             this.logsToolStripMenuItem1.Text = "Logs";
             // 
             // sensorToolStripMenuItem
@@ -240,7 +241,7 @@
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(134, 52);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(134, 57);
             this.resetToolStripMenuItem.Text = "Reset";
             // 
             // exitToolStripMenuItem
@@ -248,7 +249,7 @@
             this.exitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exitToolStripMenuItem1});
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(104, 52);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(104, 57);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // exitToolStripMenuItem1

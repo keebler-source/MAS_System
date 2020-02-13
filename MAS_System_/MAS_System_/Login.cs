@@ -25,7 +25,7 @@ namespace MAS_System_
             Random random = new Random();
 
 
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=mas-team-3-477.database.windows.net;Initial Catalog=MAS_TEAM_3_477;User ID=TEAM3MASSQL;Password=sqldatabasecis477!;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            SqlConnection sqlCon = new SqlConnection(@"Data Source=massystem477.database.windows.net;Initial Catalog=MAS_TEAM_3_477;User ID=TEAM3MASSQL;Password=sqldatabasecis477!;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             //string qurey
             string query = "SELECT * from dbo.[user] WHERE username='" + userNameTxt.Text.Trim() + "' AND password='" + passwrdTxt.Text.Trim() + "'";
             string check = "select * from dbo.[loginLog]";
@@ -56,7 +56,7 @@ namespace MAS_System_
                     int result = cmd.ExecuteNonQuery();
 
                     if (result < 0)
-                        Console.WriteLine("Error inserting data into Database!");
+                      MessageBox.Show("Error inserting data into Database!");
                 }
 
 
@@ -64,6 +64,7 @@ namespace MAS_System_
                 Sensor sensor = new Sensor();
                 this.Hide();
                 sensor.Show();
+                
             }
             else
             {
