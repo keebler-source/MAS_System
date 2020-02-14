@@ -163,6 +163,7 @@ namespace MAS_System_
         {
             Sensor form = new Sensor();
             this.Hide();
+            form.Close();
             form.Show();
             this.Close();
         }

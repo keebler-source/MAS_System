@@ -50,3 +50,4 @@ C:\Users\cokea\Source\Repos\MAS_System-\MAS_System_\MAS_System_\bin\Debug\MAS_Sy
 C:\Users\cokea\Source\Repos\MAS_System-\MAS_System_\MAS_System_\bin\Debug\MAS_System_.exe
 C:\Users\cokea\Source\Repos\MAS_System-\MAS_System_\MAS_System_\bin\Debug\MAS_System_.pdb
 C:\Users\cokea\source\repos\keebler-source\MAS_System\MAS_System_\MAS_System_\obj\Debug\MAS_System_.Threshold.resources
+C:\Users\cokea\Source\Repos\keebler-source\MAS_System\MAS_System_\MAS_System_\obj\Debug\MAS_System_.AddUser.resources

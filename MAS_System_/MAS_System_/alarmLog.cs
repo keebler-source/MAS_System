@@ -37,5 +37,12 @@ namespace MAS_System_
             this.Show();
             formOpen.Show();
         }
+
+        private void alarmLog_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'mAS_TEAM_3_477DataSet.alarmLog' table. You can move, or remove it, as needed.
+            this.alarmLogTableAdapter.Fill(this.mAS_TEAM_3_477DataSet.alarmLog);
+
+        }
     }
 }

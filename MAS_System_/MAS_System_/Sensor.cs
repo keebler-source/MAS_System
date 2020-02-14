@@ -16,9 +16,9 @@ namespace MAS_System_
 
     public partial class Sensor : Form
     {
-        double humThresh = 55;
-        double tempThresh = 60.5;
-        double smokeThresh = 200;
+        double humThresh;
+        double tempThresh;
+        double smokeThresh;
        
         string[] sensor = new string[3];
         bool closed = false;
@@ -82,7 +82,7 @@ namespace MAS_System_
             using (sqlCon)
             {
                 //sql commands 
-                string selectTemp = "select top 1 thresholdVaule from threshold where threholdName = 'Temp' order by threshId desc";
+                string selectTemp = "select top 1 thresholdVaule from threshold where threholdName = 'Temperature' order by threshId desc";
                 string selectSmoke = "select top 1 thresholdVaule from threshold where threholdName = 'Smoke' order by threshId desc";
                 string selectHum = "select top 1 thresholdVaule from threshold where threholdName = 'Humidity' order by threshId desc";
                 //created the connection and using the query 
@@ -150,17 +150,12 @@ namespace MAS_System_
                 }
                 else
                 {
-
-
+                    //vaule create 
                     double sensor = (rand1.NextDouble() * (sensMax[0] - sensMin[0])) + 1;
                     int sensConvert = Convert.ToInt32(sensor);
                     sender = sensConvert;
+                    //sending the work done 
                     worker2.ReportProgress(sensConvert);
-
-                    //temp set
-
-                    //passing the 
-
                     //sleeping the system for 60 seconds 
                     System.Threading.Thread.Sleep(60000);
 
@@ -172,6 +167,7 @@ namespace MAS_System_
 
         private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            
             string varConvert = e.Result.ToString();
             AppendTextBox(varConvert);
 
@@ -209,12 +205,12 @@ namespace MAS_System_
                         int readReturn;
                         if (reader == null)
                         {
-                            readReturn = reader.GetInt32(0);
+                            readReturn = Convert.ToInt32(reader[0]);
                             cmd.Parameters.AddWithValue("@TempID", readReturn + 1);
                         }
                         else
                         {
-                            readReturn = reader.GetInt32(0);
+                            readReturn = Convert.ToInt32(reader[0]);
                             cmd.Parameters.AddWithValue("@TempID", readReturn + 1);
                         }
                     }
@@ -229,13 +225,50 @@ namespace MAS_System_
                     sqlCon.Open();
                     //excuting the command 
                     int result = cmd.ExecuteNonQuery();
-
+                    sqlCon.Close();
                     if (result < 0)
                         MessageBox.Show("Error inserting data into Database!");
 
                 }
-            }
 
+                double testVaule = Convert.ToDouble(v);
+                if (testVaule >= tempThresh)
+                {
+                    var results = MessageBox.Show("The Temp threshold was exeted", "Would you like to reset ",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question);
+                    //will add the wait time here if the user does not select anything 
+
+                    if (results == DialogResult.No)
+                    {
+                        DateTime dateTime = new DateTime();
+                        string threshInsert = "insert into alarmLogs(sensorName,sensorVaule,threshold,dateTime)values(@sensorName, @sensorVaule,@threshold, @dateTime)";
+                        using (sqlCon)
+                        {
+                            using (SqlCommand cmd = new SqlCommand(threshInsert, sqlCon))
+                            {
+                                //getting the max PK for the table 
+                                
+                                sqlCon.Open();
+
+                                //closing the connection to the data base 
+                                sqlCon.Close();
+                                //getting the date and time 
+
+                                //adding all current vars to the data base 
+                                cmd.Parameters.AddWithValue("@sensorName", tempLBL.Text.Trim());
+                                cmd.Parameters.AddWithValue("@sensorVaule", tempLvlTxt.Text.Trim());
+                                cmd.Parameters.AddWithValue("@threshold", tempThresh);
+                                cmd.Parameters.AddWithValue("@dateTime", dateTime.ToString());
+                                sqlCon.Open();
+                                //excuting the command 
+                                int result = cmd.ExecuteNonQuery();
+                            }
+
+                        }
+                    }
+                }
+            }
         }
 
 
@@ -269,12 +302,12 @@ namespace MAS_System_
                         int readReturn;
                         if (reader == null)
                         {
-                            readReturn = reader.GetInt32(0);
+                            readReturn = Convert.ToInt32(reader[0]);
                             cmd.Parameters.AddWithValue("@humidityId", readReturn + 1);
                         }
                         else
                         {
-                            readReturn = reader.GetInt32(0);
+                            readReturn = Convert.ToInt32(reader[0]);
                             cmd.Parameters.AddWithValue("@humidityId", readReturn + 1);
                         }
 
@@ -290,9 +323,44 @@ namespace MAS_System_
                     sqlCon.Open();
                     //excuting the command 
                     int result = cmd.ExecuteNonQuery();
-
+                    sqlCon.Close();
                     if (result < 0)
                         MessageBox.Show("Error inserting data into Database!");
+                    double testVaule = Convert.ToDouble(v);
+                    if (testVaule >= humThresh)
+                    {
+                        var results = MessageBox.Show("The Humidity threshold was exeted", "Would you like to reset ",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Question);
+                        //will add the wait time here if the user does not select anything 
+
+                        if (results == DialogResult.No)
+                        {
+                            
+                            string threshInsert = "insert into alarmLogs(sensorName,sensorVaule,threshold,dateTime)values( @sensorName, @sensorVaule,@threshold, @dateTime)";
+                            using (sqlCon)
+                            {
+                                using (SqlCommand cmd11 = new SqlCommand(threshInsert, sqlCon))
+                                {
+                                    
+                                    //closing the connection to the data base 
+                                    sqlCon.Close();
+                                    //getting the date and time 
+
+                                    //adding all current vars to the data base 
+                                    cmd11.Parameters.AddWithValue("@sensorName", humLbl.Text.Trim());
+                                    cmd11.Parameters.AddWithValue("@sensorVaule", humityTxt.Text.Trim());
+                                    cmd11.Parameters.AddWithValue("@threshold", humThresh);
+                                    cmd11.Parameters.AddWithValue("@dateTime", dateTime.ToString());
+                                    sqlCon.Open();
+                                    //excuting the command 
+                                    int result11 = cmd11.ExecuteNonQuery();
+                                    sqlCon.Close();
+                                }
+
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -323,12 +391,12 @@ namespace MAS_System_
                         int readReturn;
                         if (reader == null)
                         {
-                            readReturn = reader.GetInt32(0);
+                            readReturn = Convert.ToInt32(reader[0]);
                             cmd.Parameters.AddWithValue("@smokeId", readReturn +1 );
                         }
                         else
                         {
-                            readReturn = reader.GetInt32(0);
+                            readReturn = Convert.ToInt32(reader[0]);
                             cmd.Parameters.AddWithValue("@smokeId", readReturn+1);
                         }
                      
@@ -339,17 +407,48 @@ namespace MAS_System_
                     //getting the date and time 
                     DateTime dateTime = DateTime.Now;
                     //adding all current vars to the data base 
-                    cmd.Parameters.AddWithValue("@sensorName", humLbl.Text.Trim());
-                    cmd.Parameters.AddWithValue("@sensorValue", humityTxt.Text.Trim());
+                    cmd.Parameters.AddWithValue("@sensorName", smokeLbl.Text.Trim());
+                    cmd.Parameters.AddWithValue("@sensorValue", smokeLvlTxt.Text.Trim());
                     cmd.Parameters.AddWithValue("@dateTime", dateTime.ToString());
                     sqlCon.Open();
                     //excuting the command 
                      int result = cmd.ExecuteNonQuery();
-                    
-                   
-                    
-                    
-                        
+                    sqlCon.Close();
+                }
+                double testVaule = Convert.ToDouble(v);
+                if (testVaule >= smokeThresh)
+                {
+                    var results = MessageBox.Show("The Smoke threshold was exeted", "Would you like to reset ",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question);
+                    //will add the wait time here if the user does not select anything 
+
+                    if (results == DialogResult.No)
+                    {
+                        DateTime dateTime = new DateTime();
+                        string threshInsert = "insert into alarmLogs(sensorName,sensorVaule,threshold,dateTime)values(@sensorName, @sensorVaule,@threshold, @dateTime)";
+                        using (sqlCon)
+                        {
+                            using (SqlCommand cmd = new SqlCommand(threshInsert, sqlCon))
+                            {
+                                //getting the max PK for the table 
+                                
+                                //closing the connection to the data base 
+                                sqlCon.Close();
+                                //getting the date and time 
+
+                                //adding all current vars to the data base 
+                                cmd.Parameters.AddWithValue("@sensorName", smokeLvlTxt.Text.Trim());
+                                cmd.Parameters.AddWithValue("@sensorVaule", smokeLvlTxt.Text.Trim());
+                                cmd.Parameters.AddWithValue("@threshold", smokeThresh);
+                                cmd.Parameters.AddWithValue("@dateTime", dateTime.ToString());
+                                sqlCon.Open();
+                                //excuting the command 
+                                int result = cmd.ExecuteNonQuery();
+                            }
+
+                        }
+                    }
 
                 }
             }
@@ -379,13 +478,6 @@ namespace MAS_System_
                     int sensConvert = Convert.ToInt32(sensor);
                     sender = sensConvert;
                     worker2.ReportProgress(sensConvert);
-
-
-                    //temp set
-
-                    //passing the 
-
-                    //sleeping the system for 60 seconds 
                     System.Threading.Thread.Sleep(60000);
 
                 }
@@ -423,8 +515,8 @@ namespace MAS_System_
                     // doing a rand function into a double 
                     double sensor = (rand1.NextDouble() * (sensMax[1] - sensMin[1])) + 1;
                     int sensConvert = Convert.ToInt32(sensor);
-                    //passing the var that was genrated
                     worker1.ReportProgress(sensConvert);
+                    
                     //sleeping the system for 60 seconds 
                     System.Threading.Thread.Sleep(60000);
 
@@ -483,6 +575,12 @@ namespace MAS_System_
             this.Hide();
             open.Show();
             
+        }
+
+        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddUser user = new AddUser();
+            user.Show();
         }
     }
 }

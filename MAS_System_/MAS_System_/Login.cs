@@ -18,6 +18,9 @@ namespace MAS_System_
         public Login()
         {
             InitializeComponent();
+            Sensor sensor = new Sensor();
+            sensor.Show();
+            sensor.Hide();
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
@@ -27,7 +30,7 @@ namespace MAS_System_
 
             SqlConnection sqlCon = new SqlConnection(@"Data Source=massystem477.database.windows.net;Initial Catalog=MAS_TEAM_3_477;User ID=TEAM3MASSQL;Password=sqldatabasecis477!;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             //string qurey
-            string query = "SELECT * from dbo.[user] WHERE username='" + userNameTxt.Text.Trim() + "' AND password='" + passwrdTxt.Text.Trim() + "'";
+            string query = "SELECT * from dbo.[users] WHERE username='" + userNameTxt.Text.Trim() + "' AND password='" + passwrdTxt.Text.Trim() + "'";
             string check = "select * from dbo.[loginLog]";
             //data adapter
             SqlDataAdapter sda = new SqlDataAdapter(query, sqlCon);
@@ -40,7 +43,7 @@ namespace MAS_System_
             checksda.Fill(checkDT);
             //writes how many rows are in the table to pkgen
             int pkgen = checkDT.Rows.Count;
-            if (dt.Rows.Count == 1)
+            if (dt.Rows.Count >= 1)
             {
                 string insert = "INSERT INTO dbo.loginLog(loginId, username, dateTime) VALUES(@loginId, @username, @dateTime)";
                 using (SqlCommand cmd = new SqlCommand(insert, sqlCon))
