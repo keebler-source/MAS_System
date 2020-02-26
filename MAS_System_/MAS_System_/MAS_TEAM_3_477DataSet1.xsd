@@ -121,7 +121,16 @@ SELECT loginId, username, dateTime FROM loginLog WHERE (loginId = @loginId)</Com
               <Mapping SourceColumn="username" DataSetColumn="username" />
               <Mapping SourceColumn="dateTime" DataSetColumn="dateTime" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="MAS_TEAM_3_477ConnectionString1 (Settings)" DbObjectName="MAS_TEAM_3_477.dbo.loginLog" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT loginId, username, dateTime FROM dbo.loginLog</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sensorLogsTableAdapter" GeneratorDataComponentClassName="sensorLogsTableAdapter" Name="sensorLogs" UserDataComponentName="sensorLogsTableAdapter">
             <MainSource>
@@ -479,7 +488,7 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)</CommandTe
   <xs:element name="MAS_TEAM_3_477DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="MAS_TEAM_3_477DataSet" msprop:Generator_UserDSName="MAS_TEAM_3_477DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="alarmLog" msprop:Generator_TableClassName="alarmLogDataTable" msprop:Generator_TableVarName="tablealarmLog" msprop:Generator_TablePropName="alarmLog" msprop:Generator_RowDeletingName="alarmLogRowDeleting" msprop:Generator_RowChangingName="alarmLogRowChanging" msprop:Generator_RowEvHandlerName="alarmLogRowChangeEventHandler" msprop:Generator_RowDeletedName="alarmLogRowDeleted" msprop:Generator_UserTableName="alarmLog" msprop:Generator_RowChangedName="alarmLogRowChanged" msprop:Generator_RowEvArgName="alarmLogRowChangeEvent" msprop:Generator_RowClassName="alarmLogRow">
+        <xs:element name="alarmLog" msprop:Generator_TableClassName="alarmLogDataTable" msprop:Generator_TableVarName="tablealarmLog" msprop:Generator_RowChangedName="alarmLogRowChanged" msprop:Generator_TablePropName="alarmLog" msprop:Generator_RowDeletingName="alarmLogRowDeleting" msprop:Generator_RowChangingName="alarmLogRowChanging" msprop:Generator_RowEvHandlerName="alarmLogRowChangeEventHandler" msprop:Generator_RowDeletedName="alarmLogRowDeleted" msprop:Generator_RowClassName="alarmLogRow" msprop:Generator_UserTableName="alarmLog" msprop:Generator_RowEvArgName="alarmLogRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="alarmID" msprop:Generator_ColumnVarNameInTable="columnalarmID" msprop:Generator_ColumnPropNameInRow="alarmID" msprop:Generator_ColumnPropNameInTable="alarmIDColumn" msprop:Generator_UserColumnName="alarmID">
@@ -514,7 +523,7 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)</CommandTe
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="loginLog" msprop:Generator_TableClassName="loginLogDataTable" msprop:Generator_TableVarName="tableloginLog" msprop:Generator_TablePropName="loginLog" msprop:Generator_RowDeletingName="loginLogRowDeleting" msprop:Generator_RowChangingName="loginLogRowChanging" msprop:Generator_RowEvHandlerName="loginLogRowChangeEventHandler" msprop:Generator_RowDeletedName="loginLogRowDeleted" msprop:Generator_UserTableName="loginLog" msprop:Generator_RowChangedName="loginLogRowChanged" msprop:Generator_RowEvArgName="loginLogRowChangeEvent" msprop:Generator_RowClassName="loginLogRow">
+        <xs:element name="loginLog" msprop:Generator_TableClassName="loginLogDataTable" msprop:Generator_TableVarName="tableloginLog" msprop:Generator_RowChangedName="loginLogRowChanged" msprop:Generator_TablePropName="loginLog" msprop:Generator_RowDeletingName="loginLogRowDeleting" msprop:Generator_RowChangingName="loginLogRowChanging" msprop:Generator_RowEvHandlerName="loginLogRowChangeEventHandler" msprop:Generator_RowDeletedName="loginLogRowDeleted" msprop:Generator_RowClassName="loginLogRow" msprop:Generator_UserTableName="loginLog" msprop:Generator_RowEvArgName="loginLogRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="loginId" msprop:Generator_ColumnVarNameInTable="columnloginId" msprop:Generator_ColumnPropNameInRow="loginId" msprop:Generator_ColumnPropNameInTable="loginIdColumn" msprop:Generator_UserColumnName="loginId" type="xs:int" />
@@ -535,7 +544,7 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)</CommandTe
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="sensorLogs" msprop:Generator_TableClassName="sensorLogsDataTable" msprop:Generator_TableVarName="tablesensorLogs" msprop:Generator_TablePropName="sensorLogs" msprop:Generator_RowDeletingName="sensorLogsRowDeleting" msprop:Generator_RowChangingName="sensorLogsRowChanging" msprop:Generator_RowEvHandlerName="sensorLogsRowChangeEventHandler" msprop:Generator_RowDeletedName="sensorLogsRowDeleted" msprop:Generator_UserTableName="sensorLogs" msprop:Generator_RowChangedName="sensorLogsRowChanged" msprop:Generator_RowEvArgName="sensorLogsRowChangeEvent" msprop:Generator_RowClassName="sensorLogsRow">
+        <xs:element name="sensorLogs" msprop:Generator_TableClassName="sensorLogsDataTable" msprop:Generator_TableVarName="tablesensorLogs" msprop:Generator_RowChangedName="sensorLogsRowChanged" msprop:Generator_TablePropName="sensorLogs" msprop:Generator_RowDeletingName="sensorLogsRowDeleting" msprop:Generator_RowChangingName="sensorLogsRowChanging" msprop:Generator_RowEvHandlerName="sensorLogsRowChangeEventHandler" msprop:Generator_RowDeletedName="sensorLogsRowDeleted" msprop:Generator_RowClassName="sensorLogsRow" msprop:Generator_UserTableName="sensorLogs" msprop:Generator_RowEvArgName="sensorLogsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="sensorId" msprop:Generator_ColumnVarNameInTable="columnsensorId" msprop:Generator_ColumnPropNameInRow="sensorId" msprop:Generator_ColumnPropNameInTable="sensorIdColumn" msprop:Generator_UserColumnName="sensorId" type="xs:int" />
@@ -563,7 +572,7 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)</CommandTe
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="threshold" msprop:Generator_TableClassName="thresholdDataTable" msprop:Generator_TableVarName="tablethreshold" msprop:Generator_TablePropName="threshold" msprop:Generator_RowDeletingName="thresholdRowDeleting" msprop:Generator_RowChangingName="thresholdRowChanging" msprop:Generator_RowEvHandlerName="thresholdRowChangeEventHandler" msprop:Generator_RowDeletedName="thresholdRowDeleted" msprop:Generator_UserTableName="threshold" msprop:Generator_RowChangedName="thresholdRowChanged" msprop:Generator_RowEvArgName="thresholdRowChangeEvent" msprop:Generator_RowClassName="thresholdRow">
+        <xs:element name="threshold" msprop:Generator_TableClassName="thresholdDataTable" msprop:Generator_TableVarName="tablethreshold" msprop:Generator_RowChangedName="thresholdRowChanged" msprop:Generator_TablePropName="threshold" msprop:Generator_RowDeletingName="thresholdRowDeleting" msprop:Generator_RowChangingName="thresholdRowChanging" msprop:Generator_RowEvHandlerName="thresholdRowChangeEventHandler" msprop:Generator_RowDeletedName="thresholdRowDeleted" msprop:Generator_RowClassName="thresholdRow" msprop:Generator_UserTableName="threshold" msprop:Generator_RowEvArgName="thresholdRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="threshId" msprop:Generator_ColumnVarNameInTable="columnthreshId" msprop:Generator_ColumnPropNameInRow="threshId" msprop:Generator_ColumnPropNameInTable="threshIdColumn" msprop:Generator_UserColumnName="threshId" type="xs:int" />
@@ -598,7 +607,7 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)</CommandTe
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="humiditySensor" msprop:Generator_TableClassName="humiditySensorDataTable" msprop:Generator_TableVarName="tablehumiditySensor" msprop:Generator_RowChangedName="humiditySensorRowChanged" msprop:Generator_TablePropName="humiditySensor" msprop:Generator_RowDeletingName="humiditySensorRowDeleting" msprop:Generator_RowChangingName="humiditySensorRowChanging" msprop:Generator_RowEvHandlerName="humiditySensorRowChangeEventHandler" msprop:Generator_RowDeletedName="humiditySensorRowDeleted" msprop:Generator_RowClassName="humiditySensorRow" msprop:Generator_UserTableName="humiditySensor" msprop:Generator_RowEvArgName="humiditySensorRowChangeEvent">
+        <xs:element name="humiditySensor" msprop:Generator_TableClassName="humiditySensorDataTable" msprop:Generator_TableVarName="tablehumiditySensor" msprop:Generator_TablePropName="humiditySensor" msprop:Generator_RowDeletingName="humiditySensorRowDeleting" msprop:Generator_RowChangingName="humiditySensorRowChanging" msprop:Generator_RowEvHandlerName="humiditySensorRowChangeEventHandler" msprop:Generator_RowDeletedName="humiditySensorRowDeleted" msprop:Generator_UserTableName="humiditySensor" msprop:Generator_RowChangedName="humiditySensorRowChanged" msprop:Generator_RowEvArgName="humiditySensorRowChangeEvent" msprop:Generator_RowClassName="humiditySensorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="humidityId" msprop:Generator_ColumnVarNameInTable="columnhumidityId" msprop:Generator_ColumnPropNameInRow="humidityId" msprop:Generator_ColumnPropNameInTable="humidityIdColumn" msprop:Generator_UserColumnName="humidityId" type="xs:int" />
@@ -626,7 +635,7 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)</CommandTe
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="smokeSensor" msprop:Generator_TableClassName="smokeSensorDataTable" msprop:Generator_TableVarName="tablesmokeSensor" msprop:Generator_RowChangedName="smokeSensorRowChanged" msprop:Generator_TablePropName="smokeSensor" msprop:Generator_RowDeletingName="smokeSensorRowDeleting" msprop:Generator_RowChangingName="smokeSensorRowChanging" msprop:Generator_RowEvHandlerName="smokeSensorRowChangeEventHandler" msprop:Generator_RowDeletedName="smokeSensorRowDeleted" msprop:Generator_RowClassName="smokeSensorRow" msprop:Generator_UserTableName="smokeSensor" msprop:Generator_RowEvArgName="smokeSensorRowChangeEvent">
+        <xs:element name="smokeSensor" msprop:Generator_TableClassName="smokeSensorDataTable" msprop:Generator_TableVarName="tablesmokeSensor" msprop:Generator_TablePropName="smokeSensor" msprop:Generator_RowDeletingName="smokeSensorRowDeleting" msprop:Generator_RowChangingName="smokeSensorRowChanging" msprop:Generator_RowEvHandlerName="smokeSensorRowChangeEventHandler" msprop:Generator_RowDeletedName="smokeSensorRowDeleted" msprop:Generator_UserTableName="smokeSensor" msprop:Generator_RowChangedName="smokeSensorRowChanged" msprop:Generator_RowEvArgName="smokeSensorRowChangeEvent" msprop:Generator_RowClassName="smokeSensorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="smokeId" msprop:Generator_ColumnVarNameInTable="columnsmokeId" msprop:Generator_ColumnPropNameInRow="smokeId" msprop:Generator_ColumnPropNameInTable="smokeIdColumn" msprop:Generator_UserColumnName="smokeId" type="xs:int" />
@@ -654,7 +663,7 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)</CommandTe
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tempSensor" msprop:Generator_TableClassName="tempSensorDataTable" msprop:Generator_TableVarName="tabletempSensor" msprop:Generator_RowChangedName="tempSensorRowChanged" msprop:Generator_TablePropName="tempSensor" msprop:Generator_RowDeletingName="tempSensorRowDeleting" msprop:Generator_RowChangingName="tempSensorRowChanging" msprop:Generator_RowEvHandlerName="tempSensorRowChangeEventHandler" msprop:Generator_RowDeletedName="tempSensorRowDeleted" msprop:Generator_RowClassName="tempSensorRow" msprop:Generator_UserTableName="tempSensor" msprop:Generator_RowEvArgName="tempSensorRowChangeEvent">
+        <xs:element name="tempSensor" msprop:Generator_TableClassName="tempSensorDataTable" msprop:Generator_TableVarName="tabletempSensor" msprop:Generator_TablePropName="tempSensor" msprop:Generator_RowDeletingName="tempSensorRowDeleting" msprop:Generator_RowChangingName="tempSensorRowChanging" msprop:Generator_RowEvHandlerName="tempSensorRowChangeEventHandler" msprop:Generator_RowDeletedName="tempSensorRowDeleted" msprop:Generator_UserTableName="tempSensor" msprop:Generator_RowChangedName="tempSensorRowChanged" msprop:Generator_RowEvArgName="tempSensorRowChangeEvent" msprop:Generator_RowClassName="tempSensorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TempId" msprop:Generator_ColumnVarNameInTable="columnTempId" msprop:Generator_ColumnPropNameInRow="TempId" msprop:Generator_ColumnPropNameInTable="TempIdColumn" msprop:Generator_UserColumnName="TempId" type="xs:int" />
@@ -682,7 +691,7 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)</CommandTe
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_UserTableName="users" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_RowEvArgName="usersRowChangeEvent" msprop:Generator_RowClassName="usersRow">
+        <xs:element name="users" msprop:Generator_TableClassName="usersDataTable" msprop:Generator_TableVarName="tableusers" msprop:Generator_RowChangedName="usersRowChanged" msprop:Generator_TablePropName="users" msprop:Generator_RowDeletingName="usersRowDeleting" msprop:Generator_RowChangingName="usersRowChanging" msprop:Generator_RowEvHandlerName="usersRowChangeEventHandler" msprop:Generator_RowDeletedName="usersRowDeleted" msprop:Generator_RowClassName="usersRow" msprop:Generator_UserTableName="users" msprop:Generator_RowEvArgName="usersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="userId" msprop:Generator_ColumnVarNameInTable="columnuserId" msprop:Generator_ColumnPropNameInRow="userId" msprop:Generator_ColumnPropNameInTable="userIdColumn" msprop:Generator_UserColumnName="userId" type="xs:int" />

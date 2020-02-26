@@ -19,7 +19,7 @@ namespace MAS_System_
         double humThresh;
         double tempThresh;
         double smokeThresh;
-       
+        bool wait;
         string[] sensor = new string[3];
         bool closed = false;
         private BackgroundWorker bw;
@@ -142,7 +142,7 @@ namespace MAS_System_
             double[] sensMin = { 55.00, 45.00, 0.00 };
             BackgroundWorker worker2 = (BackgroundWorker)sender;
 
-            do
+            
             {
                 if (!this.bw.IsBusy)
                 {
@@ -160,7 +160,7 @@ namespace MAS_System_
                     System.Threading.Thread.Sleep(60000);
 
                 }
-            } while (closed == false);
+            } while (wait == false);
 
         }
 
@@ -175,6 +175,7 @@ namespace MAS_System_
 
         void ThreadStart()
         {
+            wait = false;
             if (!this.bw.IsBusy)
             {
                 this.bw.RunWorkerAsync();
@@ -418,6 +419,29 @@ namespace MAS_System_
                 double testVaule = Convert.ToDouble(v);
                 if (testVaule >= smokeThresh)
                 {
+                    DateTime dateTime = new DateTime();
+                    string threshInsert = "insert into alarmLogs(sensorName,sensorVaule,threshold,dateTime)values(@sensorName, @sensorVaule,@threshold, @dateTime)";
+                    using (sqlCon)
+                    {
+                        using (SqlCommand cmd = new SqlCommand(threshInsert, sqlCon))
+                        {
+                            //getting the max PK for the table 
+
+                            //closing the connection to the data base 
+                            sqlCon.Close();
+                            //getting the date and time 
+
+                            //adding all current vars to the data base 
+                            cmd.Parameters.AddWithValue("@sensorName", smokeLvlTxt.Text.Trim());
+                            cmd.Parameters.AddWithValue("@sensorVaule", smokeLvlTxt.Text.Trim());
+                            cmd.Parameters.AddWithValue("@threshold", smokeThresh);
+                            cmd.Parameters.AddWithValue("@dateTime", dateTime.ToString());
+                            sqlCon.Open();
+                            //excuting the command 
+                            int result = cmd.ExecuteNonQuery();
+                        }
+
+                    }
                     var results = MessageBox.Show("The Smoke threshold was exeted", "Would you like to reset ",
                                 MessageBoxButtons.YesNo,
                                 MessageBoxIcon.Question);
@@ -425,29 +449,12 @@ namespace MAS_System_
 
                     if (results == DialogResult.No)
                     {
-                        DateTime dateTime = new DateTime();
-                        string threshInsert = "insert into alarmLogs(sensorName,sensorVaule,threshold,dateTime)values(@sensorName, @sensorVaule,@threshold, @dateTime)";
-                        using (sqlCon)
-                        {
-                            using (SqlCommand cmd = new SqlCommand(threshInsert, sqlCon))
-                            {
-                                //getting the max PK for the table 
-                                
-                                //closing the connection to the data base 
-                                sqlCon.Close();
-                                //getting the date and time 
-
-                                //adding all current vars to the data base 
-                                cmd.Parameters.AddWithValue("@sensorName", smokeLvlTxt.Text.Trim());
-                                cmd.Parameters.AddWithValue("@sensorVaule", smokeLvlTxt.Text.Trim());
-                                cmd.Parameters.AddWithValue("@threshold", smokeThresh);
-                                cmd.Parameters.AddWithValue("@dateTime", dateTime.ToString());
-                                sqlCon.Open();
-                                //excuting the command 
-                                int result = cmd.ExecuteNonQuery();
-                            }
-
-                        }
+                        MessageBox.Show("911", "The authorites Have been notifited ");
+                    }
+                    else
+                    {
+                        
+                        wait = false;
                     }
 
                 }
