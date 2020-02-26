@@ -24,8 +24,6 @@ namespace MAS_System_ {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class MAS_TEAM_3_477DataSet : global::System.Data.DataSet {
         
-        private alarmLogDataTable tablealarmLog;
-        
         private loginLogDataTable tableloginLog;
         
         private sensorLogsDataTable tablesensorLogs;
@@ -39,6 +37,8 @@ namespace MAS_System_ {
         private tempSensorDataTable tabletempSensor;
         
         private usersDataTable tableusers;
+        
+        private alarmLogsDataTable tablealarmLogs;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -68,9 +68,6 @@ namespace MAS_System_ {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["alarmLog"] != null)) {
-                    base.Tables.Add(new alarmLogDataTable(ds.Tables["alarmLog"]));
-                }
                 if ((ds.Tables["loginLog"] != null)) {
                     base.Tables.Add(new loginLogDataTable(ds.Tables["loginLog"]));
                 }
@@ -92,6 +89,9 @@ namespace MAS_System_ {
                 if ((ds.Tables["users"] != null)) {
                     base.Tables.Add(new usersDataTable(ds.Tables["users"]));
                 }
+                if ((ds.Tables["alarmLogs"] != null)) {
+                    base.Tables.Add(new alarmLogsDataTable(ds.Tables["alarmLogs"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -108,16 +108,6 @@ namespace MAS_System_ {
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
             base.Tables.CollectionChanged += schemaChangedHandler;
             this.Relations.CollectionChanged += schemaChangedHandler;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public alarmLogDataTable alarmLog {
-            get {
-                return this.tablealarmLog;
-            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -192,6 +182,16 @@ namespace MAS_System_ {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public alarmLogsDataTable alarmLogs {
+            get {
+                return this.tablealarmLogs;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -257,9 +257,6 @@ namespace MAS_System_ {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["alarmLog"] != null)) {
-                    base.Tables.Add(new alarmLogDataTable(ds.Tables["alarmLog"]));
-                }
                 if ((ds.Tables["loginLog"] != null)) {
                     base.Tables.Add(new loginLogDataTable(ds.Tables["loginLog"]));
                 }
@@ -280,6 +277,9 @@ namespace MAS_System_ {
                 }
                 if ((ds.Tables["users"] != null)) {
                     base.Tables.Add(new usersDataTable(ds.Tables["users"]));
+                }
+                if ((ds.Tables["alarmLogs"] != null)) {
+                    base.Tables.Add(new alarmLogsDataTable(ds.Tables["alarmLogs"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -314,12 +314,6 @@ namespace MAS_System_ {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablealarmLog = ((alarmLogDataTable)(base.Tables["alarmLog"]));
-            if ((initTable == true)) {
-                if ((this.tablealarmLog != null)) {
-                    this.tablealarmLog.InitVars();
-                }
-            }
             this.tableloginLog = ((loginLogDataTable)(base.Tables["loginLog"]));
             if ((initTable == true)) {
                 if ((this.tableloginLog != null)) {
@@ -362,6 +356,12 @@ namespace MAS_System_ {
                     this.tableusers.InitVars();
                 }
             }
+            this.tablealarmLogs = ((alarmLogsDataTable)(base.Tables["alarmLogs"]));
+            if ((initTable == true)) {
+                if ((this.tablealarmLogs != null)) {
+                    this.tablealarmLogs.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -372,8 +372,6 @@ namespace MAS_System_ {
             this.Namespace = "http://tempuri.org/MAS_TEAM_3_477DataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablealarmLog = new alarmLogDataTable();
-            base.Tables.Add(this.tablealarmLog);
             this.tableloginLog = new loginLogDataTable();
             base.Tables.Add(this.tableloginLog);
             this.tablesensorLogs = new sensorLogsDataTable();
@@ -388,12 +386,8 @@ namespace MAS_System_ {
             base.Tables.Add(this.tabletempSensor);
             this.tableusers = new usersDataTable();
             base.Tables.Add(this.tableusers);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializealarmLog() {
-            return false;
+            this.tablealarmLogs = new alarmLogsDataTable();
+            base.Tables.Add(this.tablealarmLogs);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -435,6 +429,12 @@ namespace MAS_System_ {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeusers() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializealarmLogs() {
             return false;
         }
         
@@ -494,9 +494,6 @@ namespace MAS_System_ {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void alarmLogRowChangeEventHandler(object sender, alarmLogRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void loginLogRowChangeEventHandler(object sender, loginLogRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -517,327 +514,8 @@ namespace MAS_System_ {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void usersRowChangeEventHandler(object sender, usersRowChangeEvent e);
         
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class alarmLogDataTable : global::System.Data.TypedTableBase<alarmLogRow> {
-            
-            private global::System.Data.DataColumn columnalarmID;
-            
-            private global::System.Data.DataColumn columnsensorName;
-            
-            private global::System.Data.DataColumn columnsensorVaule;
-            
-            private global::System.Data.DataColumn columnthreshold;
-            
-            private global::System.Data.DataColumn columndateTime;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public alarmLogDataTable() {
-                this.TableName = "alarmLog";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal alarmLogDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected alarmLogDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn alarmIDColumn {
-                get {
-                    return this.columnalarmID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn sensorNameColumn {
-                get {
-                    return this.columnsensorName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn sensorVauleColumn {
-                get {
-                    return this.columnsensorVaule;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn thresholdColumn {
-                get {
-                    return this.columnthreshold;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn dateTimeColumn {
-                get {
-                    return this.columndateTime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public alarmLogRow this[int index] {
-                get {
-                    return ((alarmLogRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event alarmLogRowChangeEventHandler alarmLogRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event alarmLogRowChangeEventHandler alarmLogRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event alarmLogRowChangeEventHandler alarmLogRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event alarmLogRowChangeEventHandler alarmLogRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddalarmLogRow(alarmLogRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public alarmLogRow AddalarmLogRow(string alarmID, string sensorName, string sensorVaule, int threshold, string dateTime) {
-                alarmLogRow rowalarmLogRow = ((alarmLogRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        alarmID,
-                        sensorName,
-                        sensorVaule,
-                        threshold,
-                        dateTime};
-                rowalarmLogRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowalarmLogRow);
-                return rowalarmLogRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public alarmLogRow FindByalarmID(string alarmID) {
-                return ((alarmLogRow)(this.Rows.Find(new object[] {
-                            alarmID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                alarmLogDataTable cln = ((alarmLogDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new alarmLogDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnalarmID = base.Columns["alarmID"];
-                this.columnsensorName = base.Columns["sensorName"];
-                this.columnsensorVaule = base.Columns["sensorVaule"];
-                this.columnthreshold = base.Columns["threshold"];
-                this.columndateTime = base.Columns["dateTime"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnalarmID = new global::System.Data.DataColumn("alarmID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnalarmID);
-                this.columnsensorName = new global::System.Data.DataColumn("sensorName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsensorName);
-                this.columnsensorVaule = new global::System.Data.DataColumn("sensorVaule", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsensorVaule);
-                this.columnthreshold = new global::System.Data.DataColumn("threshold", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnthreshold);
-                this.columndateTime = new global::System.Data.DataColumn("dateTime", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndateTime);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnalarmID}, true));
-                this.columnalarmID.AllowDBNull = false;
-                this.columnalarmID.Unique = true;
-                this.columnalarmID.MaxLength = 25;
-                this.columnsensorName.AllowDBNull = false;
-                this.columnsensorName.MaxLength = 50;
-                this.columnsensorVaule.AllowDBNull = false;
-                this.columnsensorVaule.MaxLength = 50;
-                this.columnthreshold.AllowDBNull = false;
-                this.columndateTime.AllowDBNull = false;
-                this.columndateTime.MaxLength = 255;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public alarmLogRow NewalarmLogRow() {
-                return ((alarmLogRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new alarmLogRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(alarmLogRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.alarmLogRowChanged != null)) {
-                    this.alarmLogRowChanged(this, new alarmLogRowChangeEvent(((alarmLogRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.alarmLogRowChanging != null)) {
-                    this.alarmLogRowChanging(this, new alarmLogRowChangeEvent(((alarmLogRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.alarmLogRowDeleted != null)) {
-                    this.alarmLogRowDeleted(this, new alarmLogRowChangeEvent(((alarmLogRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.alarmLogRowDeleting != null)) {
-                    this.alarmLogRowDeleting(this, new alarmLogRowChangeEvent(((alarmLogRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemovealarmLogRow(alarmLogRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                MAS_TEAM_3_477DataSet ds = new MAS_TEAM_3_477DataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "alarmLogDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void alarmLogsRowChangeEventHandler(object sender, alarmLogsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1450,8 +1128,6 @@ namespace MAS_System_ {
             
             private global::System.Data.DataColumn columndateTime;
             
-            private global::System.Data.DataColumn columnuserName;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public thresholdDataTable() {
@@ -1519,14 +1195,6 @@ namespace MAS_System_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn userNameColumn {
-                get {
-                    return this.columnuserName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1562,14 +1230,13 @@ namespace MAS_System_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public thresholdRow AddthresholdRow(int threshId, string threholdName, string thresholdVaule, string dateTime, string userName) {
+            public thresholdRow AddthresholdRow(int threshId, string threholdName, string thresholdVaule, string dateTime) {
                 thresholdRow rowthresholdRow = ((thresholdRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         threshId,
                         threholdName,
                         thresholdVaule,
-                        dateTime,
-                        userName};
+                        dateTime};
                 rowthresholdRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowthresholdRow);
                 return rowthresholdRow;
@@ -1603,7 +1270,6 @@ namespace MAS_System_ {
                 this.columnthreholdName = base.Columns["threholdName"];
                 this.columnthresholdVaule = base.Columns["thresholdVaule"];
                 this.columndateTime = base.Columns["dateTime"];
-                this.columnuserName = base.Columns["userName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1617,8 +1283,6 @@ namespace MAS_System_ {
                 base.Columns.Add(this.columnthresholdVaule);
                 this.columndateTime = new global::System.Data.DataColumn("dateTime", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndateTime);
-                this.columnuserName = new global::System.Data.DataColumn("userName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnuserName);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnthreshId}, true));
                 this.columnthreshId.AllowDBNull = false;
@@ -1629,8 +1293,6 @@ namespace MAS_System_ {
                 this.columnthresholdVaule.MaxLength = 50;
                 this.columndateTime.AllowDBNull = false;
                 this.columndateTime.MaxLength = 50;
-                this.columnuserName.AllowDBNull = false;
-                this.columnuserName.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2966,72 +2628,327 @@ namespace MAS_System_ {
         }
         
         /// <summary>
-        ///Represents strongly named DataRow class.
+        ///Represents the strongly named DataTable class.
         ///</summary>
-        public partial class alarmLogRow : global::System.Data.DataRow {
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class alarmLogsDataTable : global::System.Data.TypedTableBase<alarmLogsRow> {
             
-            private alarmLogDataTable tablealarmLog;
+            private global::System.Data.DataColumn columnalarmID;
+            
+            private global::System.Data.DataColumn columnsensorName;
+            
+            private global::System.Data.DataColumn columnsensorVaule;
+            
+            private global::System.Data.DataColumn columnthreshold;
+            
+            private global::System.Data.DataColumn columndateTime;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal alarmLogRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablealarmLog = ((alarmLogDataTable)(this.Table));
+            public alarmLogsDataTable() {
+                this.TableName = "alarmLogs";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string alarmID {
-                get {
-                    return ((string)(this[this.tablealarmLog.alarmIDColumn]));
+            internal alarmLogsDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
                 }
-                set {
-                    this[this.tablealarmLog.alarmIDColumn] = value;
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected alarmLogsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn alarmIDColumn {
+                get {
+                    return this.columnalarmID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string sensorName {
+            public global::System.Data.DataColumn sensorNameColumn {
                 get {
-                    return ((string)(this[this.tablealarmLog.sensorNameColumn]));
-                }
-                set {
-                    this[this.tablealarmLog.sensorNameColumn] = value;
+                    return this.columnsensorName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string sensorVaule {
+            public global::System.Data.DataColumn sensorVauleColumn {
                 get {
-                    return ((string)(this[this.tablealarmLog.sensorVauleColumn]));
-                }
-                set {
-                    this[this.tablealarmLog.sensorVauleColumn] = value;
+                    return this.columnsensorVaule;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int threshold {
+            public global::System.Data.DataColumn thresholdColumn {
                 get {
-                    return ((int)(this[this.tablealarmLog.thresholdColumn]));
-                }
-                set {
-                    this[this.tablealarmLog.thresholdColumn] = value;
+                    return this.columnthreshold;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string dateTime {
+            public global::System.Data.DataColumn dateTimeColumn {
                 get {
-                    return ((string)(this[this.tablealarmLog.dateTimeColumn]));
+                    return this.columndateTime;
                 }
-                set {
-                    this[this.tablealarmLog.dateTimeColumn] = value;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public alarmLogsRow this[int index] {
+                get {
+                    return ((alarmLogsRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event alarmLogsRowChangeEventHandler alarmLogsRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event alarmLogsRowChangeEventHandler alarmLogsRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event alarmLogsRowChangeEventHandler alarmLogsRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event alarmLogsRowChangeEventHandler alarmLogsRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddalarmLogsRow(alarmLogsRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public alarmLogsRow AddalarmLogsRow(string sensorName, string sensorVaule, int threshold, string dateTime) {
+                alarmLogsRow rowalarmLogsRow = ((alarmLogsRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        sensorName,
+                        sensorVaule,
+                        threshold,
+                        dateTime};
+                rowalarmLogsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowalarmLogsRow);
+                return rowalarmLogsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public alarmLogsRow FindByalarmID(int alarmID) {
+                return ((alarmLogsRow)(this.Rows.Find(new object[] {
+                            alarmID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                alarmLogsDataTable cln = ((alarmLogsDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new alarmLogsDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnalarmID = base.Columns["alarmID"];
+                this.columnsensorName = base.Columns["sensorName"];
+                this.columnsensorVaule = base.Columns["sensorVaule"];
+                this.columnthreshold = base.Columns["threshold"];
+                this.columndateTime = base.Columns["dateTime"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnalarmID = new global::System.Data.DataColumn("alarmID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnalarmID);
+                this.columnsensorName = new global::System.Data.DataColumn("sensorName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsensorName);
+                this.columnsensorVaule = new global::System.Data.DataColumn("sensorVaule", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsensorVaule);
+                this.columnthreshold = new global::System.Data.DataColumn("threshold", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnthreshold);
+                this.columndateTime = new global::System.Data.DataColumn("dateTime", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndateTime);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnalarmID}, true));
+                this.columnalarmID.AutoIncrement = true;
+                this.columnalarmID.AutoIncrementSeed = -1;
+                this.columnalarmID.AutoIncrementStep = -1;
+                this.columnalarmID.AllowDBNull = false;
+                this.columnalarmID.ReadOnly = true;
+                this.columnalarmID.Unique = true;
+                this.columnsensorName.AllowDBNull = false;
+                this.columnsensorName.MaxLength = 50;
+                this.columnsensorVaule.AllowDBNull = false;
+                this.columnsensorVaule.MaxLength = 50;
+                this.columnthreshold.AllowDBNull = false;
+                this.columndateTime.AllowDBNull = false;
+                this.columndateTime.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public alarmLogsRow NewalarmLogsRow() {
+                return ((alarmLogsRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new alarmLogsRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(alarmLogsRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.alarmLogsRowChanged != null)) {
+                    this.alarmLogsRowChanged(this, new alarmLogsRowChangeEvent(((alarmLogsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.alarmLogsRowChanging != null)) {
+                    this.alarmLogsRowChanging(this, new alarmLogsRowChangeEvent(((alarmLogsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.alarmLogsRowDeleted != null)) {
+                    this.alarmLogsRowDeleted(this, new alarmLogsRowChangeEvent(((alarmLogsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.alarmLogsRowDeleting != null)) {
+                    this.alarmLogsRowDeleting(this, new alarmLogsRowChangeEvent(((alarmLogsRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemovealarmLogsRow(alarmLogsRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                MAS_TEAM_3_477DataSet ds = new MAS_TEAM_3_477DataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "alarmLogsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
             }
         }
         
@@ -3197,17 +3114,6 @@ namespace MAS_System_ {
                 }
                 set {
                     this[this.tablethreshold.dateTimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string userName {
-                get {
-                    return ((string)(this[this.tablethreshold.userNameColumn]));
-                }
-                set {
-                    this[this.tablethreshold.userNameColumn] = value;
                 }
             }
         }
@@ -3438,35 +3344,71 @@ namespace MAS_System_ {
         }
         
         /// <summary>
-        ///Row event argument class
+        ///Represents strongly named DataRow class.
         ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class alarmLogRowChangeEvent : global::System.EventArgs {
+        public partial class alarmLogsRow : global::System.Data.DataRow {
             
-            private alarmLogRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
+            private alarmLogsDataTable tablealarmLogs;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public alarmLogRowChangeEvent(alarmLogRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
+            internal alarmLogsRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablealarmLogs = ((alarmLogsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public alarmLogRow Row {
+            public int alarmID {
                 get {
-                    return this.eventRow;
+                    return ((int)(this[this.tablealarmLogs.alarmIDColumn]));
+                }
+                set {
+                    this[this.tablealarmLogs.alarmIDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
+            public string sensorName {
                 get {
-                    return this.eventAction;
+                    return ((string)(this[this.tablealarmLogs.sensorNameColumn]));
+                }
+                set {
+                    this[this.tablealarmLogs.sensorNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string sensorVaule {
+                get {
+                    return ((string)(this[this.tablealarmLogs.sensorVauleColumn]));
+                }
+                set {
+                    this[this.tablealarmLogs.sensorVauleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int threshold {
+                get {
+                    return ((int)(this[this.tablealarmLogs.thresholdColumn]));
+                }
+                set {
+                    this[this.tablealarmLogs.thresholdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string dateTime {
+                get {
+                    return ((string)(this[this.tablealarmLogs.dateTimeColumn]));
+                }
+                set {
+                    this[this.tablealarmLogs.dateTimeColumn] = value;
                 }
             }
         }
@@ -3708,417 +3650,44 @@ namespace MAS_System_ {
                 }
             }
         }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class alarmLogsRowChangeEvent : global::System.EventArgs {
+            
+            private alarmLogsRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public alarmLogsRowChangeEvent(alarmLogsRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public alarmLogsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
     }
 }
 namespace MAS_System_.MAS_TEAM_3_477DataSetTableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class alarmLogTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public alarmLogTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "alarmLog";
-            tableMapping.ColumnMappings.Add("alarmID", "alarmID");
-            tableMapping.ColumnMappings.Add("sensorName", "sensorName");
-            tableMapping.ColumnMappings.Add("sensorVaule", "sensorVaule");
-            tableMapping.ColumnMappings.Add("threshold", "threshold");
-            tableMapping.ColumnMappings.Add("dateTime", "dateTime");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[alarmLog] WHERE (([alarmID] = @Original_alarmID) AND ([sensorN" +
-                "ame] = @Original_sensorName) AND ([sensorVaule] = @Original_sensorVaule) AND ([t" +
-                "hreshold] = @Original_threshold) AND ([dateTime] = @Original_dateTime))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_alarmID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "alarmID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sensorName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sensorVaule", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorVaule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_threshold", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threshold", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateTime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[alarmLog] ([alarmID], [sensorName], [sensorVaule], [threshold], [dateTime]) VALUES (@alarmID, @sensorName, @sensorVaule, @threshold, @dateTime);
-SELECT alarmID, sensorName, sensorVaule, threshold, dateTime FROM alarmLog WHERE (alarmID = @alarmID)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@alarmID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "alarmID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sensorName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sensorVaule", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorVaule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@threshold", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threshold", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateTime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[alarmLog] SET [alarmID] = @alarmID, [sensorName] = @sensorName, [sensorVaule] = @sensorVaule, [threshold] = @threshold, [dateTime] = @dateTime WHERE (([alarmID] = @Original_alarmID) AND ([sensorName] = @Original_sensorName) AND ([sensorVaule] = @Original_sensorVaule) AND ([threshold] = @Original_threshold) AND ([dateTime] = @Original_dateTime));
-SELECT alarmID, sensorName, sensorVaule, threshold, dateTime FROM alarmLog WHERE (alarmID = @alarmID)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@alarmID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "alarmID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sensorName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sensorVaule", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorVaule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@threshold", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threshold", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateTime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_alarmID", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "alarmID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sensorName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sensorVaule", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorVaule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_threshold", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threshold", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateTime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::MAS_System_.Properties.Settings.Default.MAS_TEAM_3_477ConnectionString1;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT alarmID, sensorName, sensorVaule, threshold, dateTime FROM dbo.alarmLog";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(MAS_TEAM_3_477DataSet.alarmLogDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual MAS_TEAM_3_477DataSet.alarmLogDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            MAS_TEAM_3_477DataSet.alarmLogDataTable dataTable = new MAS_TEAM_3_477DataSet.alarmLogDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MAS_TEAM_3_477DataSet.alarmLogDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(MAS_TEAM_3_477DataSet dataSet) {
-            return this.Adapter.Update(dataSet, "alarmLog");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_alarmID, string Original_sensorName, string Original_sensorVaule, int Original_threshold, string Original_dateTime) {
-            if ((Original_alarmID == null)) {
-                throw new global::System.ArgumentNullException("Original_alarmID");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_alarmID));
-            }
-            if ((Original_sensorName == null)) {
-                throw new global::System.ArgumentNullException("Original_sensorName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_sensorName));
-            }
-            if ((Original_sensorVaule == null)) {
-                throw new global::System.ArgumentNullException("Original_sensorVaule");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_sensorVaule));
-            }
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_threshold));
-            if ((Original_dateTime == null)) {
-                throw new global::System.ArgumentNullException("Original_dateTime");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_dateTime));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string alarmID, string sensorName, string sensorVaule, int threshold, string dateTime) {
-            if ((alarmID == null)) {
-                throw new global::System.ArgumentNullException("alarmID");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(alarmID));
-            }
-            if ((sensorName == null)) {
-                throw new global::System.ArgumentNullException("sensorName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(sensorName));
-            }
-            if ((sensorVaule == null)) {
-                throw new global::System.ArgumentNullException("sensorVaule");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(sensorVaule));
-            }
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(threshold));
-            if ((dateTime == null)) {
-                throw new global::System.ArgumentNullException("dateTime");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(dateTime));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string alarmID, string sensorName, string sensorVaule, int threshold, string dateTime, string Original_alarmID, string Original_sensorName, string Original_sensorVaule, int Original_threshold, string Original_dateTime) {
-            if ((alarmID == null)) {
-                throw new global::System.ArgumentNullException("alarmID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(alarmID));
-            }
-            if ((sensorName == null)) {
-                throw new global::System.ArgumentNullException("sensorName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(sensorName));
-            }
-            if ((sensorVaule == null)) {
-                throw new global::System.ArgumentNullException("sensorVaule");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(sensorVaule));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(threshold));
-            if ((dateTime == null)) {
-                throw new global::System.ArgumentNullException("dateTime");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(dateTime));
-            }
-            if ((Original_alarmID == null)) {
-                throw new global::System.ArgumentNullException("Original_alarmID");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_alarmID));
-            }
-            if ((Original_sensorName == null)) {
-                throw new global::System.ArgumentNullException("Original_sensorName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_sensorName));
-            }
-            if ((Original_sensorVaule == null)) {
-                throw new global::System.ArgumentNullException("Original_sensorVaule");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_sensorVaule));
-            }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_threshold));
-            if ((Original_dateTime == null)) {
-                throw new global::System.ArgumentNullException("Original_dateTime");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_dateTime));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string sensorName, string sensorVaule, int threshold, string dateTime, string Original_alarmID, string Original_sensorName, string Original_sensorVaule, int Original_threshold, string Original_dateTime) {
-            return this.Update(Original_alarmID, sensorName, sensorVaule, threshold, dateTime, Original_alarmID, Original_sensorName, Original_sensorVaule, Original_threshold, Original_dateTime);
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -4990,45 +4559,41 @@ SELECT sensorId, sensorName, sensorValue, dateTime FROM sensorLogs WHERE (sensor
             tableMapping.ColumnMappings.Add("threholdName", "threholdName");
             tableMapping.ColumnMappings.Add("thresholdVaule", "thresholdVaule");
             tableMapping.ColumnMappings.Add("dateTime", "dateTime");
-            tableMapping.ColumnMappings.Add("userName", "userName");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[threshold] WHERE (([threshId] = @Original_threshId) AND ([thre" +
-                "holdName] = @Original_threholdName) AND ([thresholdVaule] = @Original_thresholdV" +
-                "aule) AND ([dateTime] = @Original_dateTime) AND ([userName] = @Original_userName" +
-                "))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [threshold] WHERE (([threshId] = @Original_threshId) AND ([threholdNa" +
+                "me] = @Original_threholdName) AND ([thresholdVaule] = @Original_thresholdVaule) " +
+                "AND ([dateTime] = @Original_dateTime))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_threshId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threshId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_threholdName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threholdName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_thresholdVaule", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "thresholdVaule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateTime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_userName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[threshold] ([threshId], [threholdName], [thresholdVaule], [dateTime], [userName]) VALUES (@threshId, @threholdName, @thresholdVaule, @dateTime, @userName);
-SELECT threshId, threholdName, thresholdVaule, dateTime, userName FROM threshold WHERE (threshId = @threshId)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [threshold] ([threshId], [threholdName], [thresholdVaule], [dateTime]" +
+                ") VALUES (@threshId, @threholdName, @thresholdVaule, @dateTime);\r\nSELECT threshI" +
+                "d, threholdName, thresholdVaule, dateTime FROM threshold WHERE (threshId = @thre" +
+                "shId)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@threshId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threshId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@threholdName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threholdName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@thresholdVaule", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "thresholdVaule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateTime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[threshold] SET [threshId] = @threshId, [threholdName] = @threholdName, [thresholdVaule] = @thresholdVaule, [dateTime] = @dateTime, [userName] = @userName WHERE (([threshId] = @Original_threshId) AND ([threholdName] = @Original_threholdName) AND ([thresholdVaule] = @Original_thresholdVaule) AND ([dateTime] = @Original_dateTime) AND ([userName] = @Original_userName));
-SELECT threshId, threholdName, thresholdVaule, dateTime, userName FROM threshold WHERE (threshId = @threshId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [threshold] SET [threshId] = @threshId, [threholdName] = @threholdName, [thresholdVaule] = @thresholdVaule, [dateTime] = @dateTime WHERE (([threshId] = @Original_threshId) AND ([threholdName] = @Original_threholdName) AND ([thresholdVaule] = @Original_thresholdVaule) AND ([dateTime] = @Original_dateTime));
+SELECT threshId, threholdName, thresholdVaule, dateTime FROM threshold WHERE (threshId = @threshId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@threshId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threshId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@threholdName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threholdName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@thresholdVaule", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "thresholdVaule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateTime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_threshId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threshId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_threholdName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threholdName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_thresholdVaule", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "thresholdVaule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateTime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_userName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5044,8 +4609,7 @@ SELECT threshId, threholdName, thresholdVaule, dateTime, userName FROM threshold
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT threshId, threholdName, thresholdVaule, dateTime, userName FROM dbo.thresh" +
-                "old";
+            this._commandCollection[0].CommandText = "SELECT threshId, threholdName, thresholdVaule, dateTime FROM threshold";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5106,7 +4670,7 @@ SELECT threshId, threholdName, thresholdVaule, dateTime, userName FROM threshold
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_threshId, string Original_threholdName, string Original_thresholdVaule, string Original_dateTime, string Original_userName) {
+        public virtual int Delete(int Original_threshId, string Original_threholdName, string Original_thresholdVaule, string Original_dateTime) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_threshId));
             if ((Original_threholdName == null)) {
                 throw new global::System.ArgumentNullException("Original_threholdName");
@@ -5125,12 +4689,6 @@ SELECT threshId, threholdName, thresholdVaule, dateTime, userName FROM threshold
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_dateTime));
-            }
-            if ((Original_userName == null)) {
-                throw new global::System.ArgumentNullException("Original_userName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_userName));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5152,7 +4710,7 @@ SELECT threshId, threholdName, thresholdVaule, dateTime, userName FROM threshold
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int threshId, string threholdName, string thresholdVaule, string dateTime, string userName) {
+        public virtual int Insert(int threshId, string threholdName, string thresholdVaule, string dateTime) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(threshId));
             if ((threholdName == null)) {
                 throw new global::System.ArgumentNullException("threholdName");
@@ -5171,12 +4729,6 @@ SELECT threshId, threholdName, thresholdVaule, dateTime, userName FROM threshold
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(dateTime));
-            }
-            if ((userName == null)) {
-                throw new global::System.ArgumentNullException("userName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(userName));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5198,7 +4750,7 @@ SELECT threshId, threholdName, thresholdVaule, dateTime, userName FROM threshold
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int threshId, string threholdName, string thresholdVaule, string dateTime, string userName, int Original_threshId, string Original_threholdName, string Original_thresholdVaule, string Original_dateTime, string Original_userName) {
+        public virtual int Update(int threshId, string threholdName, string thresholdVaule, string dateTime, int Original_threshId, string Original_threholdName, string Original_thresholdVaule, string Original_dateTime) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(threshId));
             if ((threholdName == null)) {
                 throw new global::System.ArgumentNullException("threholdName");
@@ -5218,36 +4770,24 @@ SELECT threshId, threholdName, thresholdVaule, dateTime, userName FROM threshold
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(dateTime));
             }
-            if ((userName == null)) {
-                throw new global::System.ArgumentNullException("userName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(userName));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_threshId));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_threshId));
             if ((Original_threholdName == null)) {
                 throw new global::System.ArgumentNullException("Original_threholdName");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_threholdName));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_threholdName));
             }
             if ((Original_thresholdVaule == null)) {
                 throw new global::System.ArgumentNullException("Original_thresholdVaule");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_thresholdVaule));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_thresholdVaule));
             }
             if ((Original_dateTime == null)) {
                 throw new global::System.ArgumentNullException("Original_dateTime");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_dateTime));
-            }
-            if ((Original_userName == null)) {
-                throw new global::System.ArgumentNullException("Original_userName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_userName));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_dateTime));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5269,8 +4809,8 @@ SELECT threshId, threholdName, thresholdVaule, dateTime, userName FROM threshold
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string threholdName, string thresholdVaule, string dateTime, string userName, int Original_threshId, string Original_threholdName, string Original_thresholdVaule, string Original_dateTime, string Original_userName) {
-            return this.Update(Original_threshId, threholdName, thresholdVaule, dateTime, userName, Original_threshId, Original_threholdName, Original_thresholdVaule, Original_dateTime, Original_userName);
+        public virtual int Update(string threholdName, string thresholdVaule, string dateTime, int Original_threshId, string Original_threholdName, string Original_thresholdVaule, string Original_dateTime) {
+            return this.Update(Original_threshId, threholdName, thresholdVaule, dateTime, Original_threshId, Original_threholdName, Original_thresholdVaule, Original_dateTime);
         }
     }
     
@@ -6760,6 +6300,393 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class alarmLogsTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public alarmLogsTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "alarmLogs";
+            tableMapping.ColumnMappings.Add("alarmID", "alarmID");
+            tableMapping.ColumnMappings.Add("sensorName", "sensorName");
+            tableMapping.ColumnMappings.Add("sensorVaule", "sensorVaule");
+            tableMapping.ColumnMappings.Add("threshold", "threshold");
+            tableMapping.ColumnMappings.Add("dateTime", "dateTime");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[alarmLogs] WHERE (([alarmID] = @Original_alarmID) AND ([sensor" +
+                "Name] = @Original_sensorName) AND ([sensorVaule] = @Original_sensorVaule) AND ([" +
+                "threshold] = @Original_threshold) AND ([dateTime] = @Original_dateTime))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_alarmID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "alarmID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sensorName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sensorVaule", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorVaule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_threshold", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threshold", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateTime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[alarmLogs] ([sensorName], [sensorVaule], [threshold], [dateTim" +
+                "e]) VALUES (@sensorName, @sensorVaule, @threshold, @dateTime);\r\nSELECT alarmID, " +
+                "sensorName, sensorVaule, threshold, dateTime FROM alarmLogs WHERE (alarmID = SCO" +
+                "PE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sensorName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sensorVaule", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorVaule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@threshold", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threshold", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateTime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[alarmLogs] SET [sensorName] = @sensorName, [sensorVaule] = @sensorVaule, [threshold] = @threshold, [dateTime] = @dateTime WHERE (([alarmID] = @Original_alarmID) AND ([sensorName] = @Original_sensorName) AND ([sensorVaule] = @Original_sensorVaule) AND ([threshold] = @Original_threshold) AND ([dateTime] = @Original_dateTime));
+SELECT alarmID, sensorName, sensorVaule, threshold, dateTime FROM alarmLogs WHERE (alarmID = @alarmID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sensorName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sensorVaule", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorVaule", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@threshold", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threshold", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateTime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_alarmID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "alarmID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sensorName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorName", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sensorVaule", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sensorVaule", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_threshold", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "threshold", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dateTime", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@alarmID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "alarmID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::MAS_System_.Properties.Settings.Default.MAS_TEAM_3_477ConnectionString1;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT alarmID, sensorName, sensorVaule, threshold, dateTime FROM dbo.alarmLogs";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(MAS_TEAM_3_477DataSet.alarmLogsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual MAS_TEAM_3_477DataSet.alarmLogsDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            MAS_TEAM_3_477DataSet.alarmLogsDataTable dataTable = new MAS_TEAM_3_477DataSet.alarmLogsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(MAS_TEAM_3_477DataSet.alarmLogsDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(MAS_TEAM_3_477DataSet dataSet) {
+            return this.Adapter.Update(dataSet, "alarmLogs");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_alarmID, string Original_sensorName, string Original_sensorVaule, int Original_threshold, string Original_dateTime) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_alarmID));
+            if ((Original_sensorName == null)) {
+                throw new global::System.ArgumentNullException("Original_sensorName");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_sensorName));
+            }
+            if ((Original_sensorVaule == null)) {
+                throw new global::System.ArgumentNullException("Original_sensorVaule");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_sensorVaule));
+            }
+            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_threshold));
+            if ((Original_dateTime == null)) {
+                throw new global::System.ArgumentNullException("Original_dateTime");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_dateTime));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string sensorName, string sensorVaule, int threshold, string dateTime) {
+            if ((sensorName == null)) {
+                throw new global::System.ArgumentNullException("sensorName");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(sensorName));
+            }
+            if ((sensorVaule == null)) {
+                throw new global::System.ArgumentNullException("sensorVaule");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(sensorVaule));
+            }
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(threshold));
+            if ((dateTime == null)) {
+                throw new global::System.ArgumentNullException("dateTime");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(dateTime));
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string sensorName, string sensorVaule, int threshold, string dateTime, int Original_alarmID, string Original_sensorName, string Original_sensorVaule, int Original_threshold, string Original_dateTime, int alarmID) {
+            if ((sensorName == null)) {
+                throw new global::System.ArgumentNullException("sensorName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(sensorName));
+            }
+            if ((sensorVaule == null)) {
+                throw new global::System.ArgumentNullException("sensorVaule");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(sensorVaule));
+            }
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(threshold));
+            if ((dateTime == null)) {
+                throw new global::System.ArgumentNullException("dateTime");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(dateTime));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_alarmID));
+            if ((Original_sensorName == null)) {
+                throw new global::System.ArgumentNullException("Original_sensorName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_sensorName));
+            }
+            if ((Original_sensorVaule == null)) {
+                throw new global::System.ArgumentNullException("Original_sensorVaule");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_sensorVaule));
+            }
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_threshold));
+            if ((Original_dateTime == null)) {
+                throw new global::System.ArgumentNullException("Original_dateTime");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_dateTime));
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(alarmID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(string sensorName, string sensorVaule, int threshold, string dateTime, int Original_alarmID, string Original_sensorName, string Original_sensorVaule, int Original_threshold, string Original_dateTime) {
+            return this.Update(sensorName, sensorVaule, threshold, dateTime, Original_alarmID, Original_sensorName, Original_sensorVaule, Original_threshold, Original_dateTime, Original_alarmID);
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -6770,8 +6697,6 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
     public partial class TableAdapterManager : global::System.ComponentModel.Component {
         
         private UpdateOrderOption _updateOrder;
-        
-        private alarmLogTableAdapter _alarmLogTableAdapter;
         
         private loginLogTableAdapter _loginLogTableAdapter;
         
@@ -6787,6 +6712,8 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
         
         private usersTableAdapter _usersTableAdapter;
         
+        private alarmLogsTableAdapter _alarmLogsTableAdapter;
+        
         private bool _backupDataSetBeforeUpdate;
         
         private global::System.Data.IDbConnection _connection;
@@ -6799,20 +6726,6 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public alarmLogTableAdapter alarmLogTableAdapter {
-            get {
-                return this._alarmLogTableAdapter;
-            }
-            set {
-                this._alarmLogTableAdapter = value;
             }
         }
         
@@ -6916,6 +6829,20 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public alarmLogsTableAdapter alarmLogsTableAdapter {
+            get {
+                return this._alarmLogsTableAdapter;
+            }
+            set {
+                this._alarmLogsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -6932,10 +6859,6 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
             get {
                 if ((this._connection != null)) {
                     return this._connection;
-                }
-                if (((this._alarmLogTableAdapter != null) 
-                            && (this._alarmLogTableAdapter.Connection != null))) {
-                    return this._alarmLogTableAdapter.Connection;
                 }
                 if (((this._loginLogTableAdapter != null) 
                             && (this._loginLogTableAdapter.Connection != null))) {
@@ -6965,6 +6888,10 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
                             && (this._usersTableAdapter.Connection != null))) {
                     return this._usersTableAdapter.Connection;
                 }
+                if (((this._alarmLogsTableAdapter != null) 
+                            && (this._alarmLogsTableAdapter.Connection != null))) {
+                    return this._alarmLogsTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -6978,9 +6905,6 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._alarmLogTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._loginLogTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -7002,6 +6926,9 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
                 if ((this._usersTableAdapter != null)) {
                     count = (count + 1);
                 }
+                if ((this._alarmLogsTableAdapter != null)) {
+                    count = (count + 1);
+                }
                 return count;
             }
         }
@@ -7013,15 +6940,6 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(MAS_TEAM_3_477DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._alarmLogTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.alarmLog.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._alarmLogTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._loginLogTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.loginLog.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -7085,6 +7003,15 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._alarmLogsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.alarmLogs.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._alarmLogsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -7095,14 +7022,6 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(MAS_TEAM_3_477DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._alarmLogTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.alarmLog.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._alarmLogTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._loginLogTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.loginLog.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -7159,6 +7078,14 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._alarmLogsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.alarmLogs.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._alarmLogsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -7169,6 +7096,14 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(MAS_TEAM_3_477DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._alarmLogsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.alarmLogs.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._alarmLogsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -7225,14 +7160,6 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._alarmLogTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.alarmLog.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._alarmLogTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -7272,11 +7199,6 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._alarmLogTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._alarmLogTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._loginLogTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._loginLogTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -7312,6 +7234,11 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
+            if (((this._alarmLogsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._alarmLogsTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
+                        "tring.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
@@ -7344,15 +7271,6 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._alarmLogTableAdapter != null)) {
-                    revertConnections.Add(this._alarmLogTableAdapter, this._alarmLogTableAdapter.Connection);
-                    this._alarmLogTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._alarmLogTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._alarmLogTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._alarmLogTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._alarmLogTableAdapter.Adapter);
-                    }
-                }
                 if ((this._loginLogTableAdapter != null)) {
                     revertConnections.Add(this._loginLogTableAdapter, this._loginLogTableAdapter.Connection);
                     this._loginLogTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -7416,6 +7334,15 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
                         adaptersWithAcceptChangesDuringUpdate.Add(this._usersTableAdapter.Adapter);
                     }
                 }
+                if ((this._alarmLogsTableAdapter != null)) {
+                    revertConnections.Add(this._alarmLogsTableAdapter, this._alarmLogsTableAdapter.Connection);
+                    this._alarmLogsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._alarmLogsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._alarmLogsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._alarmLogsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._alarmLogsTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -7474,10 +7401,6 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._alarmLogTableAdapter != null)) {
-                    this._alarmLogTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._alarmLogTableAdapter]));
-                    this._alarmLogTableAdapter.Transaction = null;
-                }
                 if ((this._loginLogTableAdapter != null)) {
                     this._loginLogTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._loginLogTableAdapter]));
                     this._loginLogTableAdapter.Transaction = null;
@@ -7505,6 +7428,10 @@ SELECT userId, username, password FROM users WHERE (userId = @userId)";
                 if ((this._usersTableAdapter != null)) {
                     this._usersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._usersTableAdapter]));
                     this._usersTableAdapter.Transaction = null;
+                }
+                if ((this._alarmLogsTableAdapter != null)) {
+                    this._alarmLogsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._alarmLogsTableAdapter]));
+                    this._alarmLogsTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

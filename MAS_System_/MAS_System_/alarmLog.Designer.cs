@@ -35,18 +35,19 @@
             this.sensorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sensorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sensorToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.mAS_TEAM_3_477DataSet = new MAS_System_.MAS_TEAM_3_477DataSet();
-            this.alarmLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.alarmLogTableAdapter = new MAS_System_.MAS_TEAM_3_477DataSetTableAdapters.alarmLogTableAdapter();
-            this.sensorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sensorVauleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thresholdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableAdapterManager = new MAS_System_.MAS_TEAM_3_477DataSetTableAdapters.TableAdapterManager();
+            this.alarmLogsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.alarmLogsTableAdapter = new MAS_System_.MAS_TEAM_3_477DataSetTableAdapters.alarmLogsTableAdapter();
+            this.alarmLogsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mAS_TEAM_3_477DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alarmLogBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alarmLogsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alarmLogsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -57,8 +58,8 @@
             this.sensorToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(664, 35);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(19, 6, 0, 6);
+            this.menuStrip1.Size = new System.Drawing.Size(1849, 64);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -68,20 +69,20 @@
             this.loginToolStripMenuItem,
             this.sensorToolStripMenuItem});
             this.logToolStripMenuItem.Name = "logToolStripMenuItem";
-            this.logToolStripMenuItem.Size = new System.Drawing.Size(58, 29);
+            this.logToolStripMenuItem.Size = new System.Drawing.Size(107, 52);
             this.logToolStripMenuItem.Text = "Log";
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(168, 34);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(325, 66);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // sensorToolStripMenuItem
             // 
             this.sensorToolStripMenuItem.Name = "sensorToolStripMenuItem";
-            this.sensorToolStripMenuItem.Size = new System.Drawing.Size(168, 34);
+            this.sensorToolStripMenuItem.Size = new System.Drawing.Size(325, 66);
             this.sensorToolStripMenuItem.Text = "Sensor";
             this.sensorToolStripMenuItem.Click += new System.EventHandler(this.sensorToolStripMenuItem_Click);
             // 
@@ -90,103 +91,117 @@
             this.sensorToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sensorToolStripMenuItem2});
             this.sensorToolStripMenuItem1.Name = "sensorToolStripMenuItem1";
-            this.sensorToolStripMenuItem1.Size = new System.Drawing.Size(82, 29);
+            this.sensorToolStripMenuItem1.Size = new System.Drawing.Size(155, 52);
             this.sensorToolStripMenuItem1.Text = "Sensor";
             // 
             // sensorToolStripMenuItem2
             // 
             this.sensorToolStripMenuItem2.Name = "sensorToolStripMenuItem2";
-            this.sensorToolStripMenuItem2.Size = new System.Drawing.Size(168, 34);
+            this.sensorToolStripMenuItem2.Size = new System.Drawing.Size(325, 66);
             this.sensorToolStripMenuItem2.Text = "Sensor";
             this.sensorToolStripMenuItem2.Click += new System.EventHandler(this.sensorToolStripMenuItem2_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.sensorNameDataGridViewTextBoxColumn,
-            this.sensorVauleDataGridViewTextBoxColumn,
-            this.thresholdDataGridViewTextBoxColumn,
-            this.dateTimeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.alarmLogBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 38);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(664, 651);
-            this.dataGridView1.TabIndex = 1;
             // 
             // mAS_TEAM_3_477DataSet
             // 
             this.mAS_TEAM_3_477DataSet.DataSetName = "MAS_TEAM_3_477DataSet";
             this.mAS_TEAM_3_477DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // alarmLogBindingSource
+            // tableAdapterManager
             // 
-            this.alarmLogBindingSource.DataMember = "alarmLog";
-            this.alarmLogBindingSource.DataSource = this.mAS_TEAM_3_477DataSet;
+            this.tableAdapterManager.alarmLogsTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.humiditySensorTableAdapter = null;
+            this.tableAdapterManager.loginLogTableAdapter = null;
+            this.tableAdapterManager.sensorLogsTableAdapter = null;
+            this.tableAdapterManager.smokeSensorTableAdapter = null;
+            this.tableAdapterManager.tempSensorTableAdapter = null;
+            this.tableAdapterManager.thresholdTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = MAS_System_.MAS_TEAM_3_477DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.usersTableAdapter = null;
             // 
-            // alarmLogTableAdapter
+            // alarmLogsBindingSource
             // 
-            this.alarmLogTableAdapter.ClearBeforeFill = true;
+            this.alarmLogsBindingSource.DataMember = "alarmLogs";
+            this.alarmLogsBindingSource.DataSource = this.mAS_TEAM_3_477DataSet;
             // 
-            // sensorNameDataGridViewTextBoxColumn
+            // alarmLogsTableAdapter
             // 
-            this.sensorNameDataGridViewTextBoxColumn.DataPropertyName = "sensorName";
-            this.sensorNameDataGridViewTextBoxColumn.HeaderText = "Sensor";
-            this.sensorNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sensorNameDataGridViewTextBoxColumn.Name = "sensorNameDataGridViewTextBoxColumn";
-            this.sensorNameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sensorNameDataGridViewTextBoxColumn.Width = 150;
+            this.alarmLogsTableAdapter.ClearBeforeFill = true;
             // 
-            // sensorVauleDataGridViewTextBoxColumn
+            // alarmLogsDataGridView
             // 
-            this.sensorVauleDataGridViewTextBoxColumn.DataPropertyName = "sensorVaule";
-            this.sensorVauleDataGridViewTextBoxColumn.HeaderText = "sensorVaule";
-            this.sensorVauleDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.sensorVauleDataGridViewTextBoxColumn.Name = "sensorVauleDataGridViewTextBoxColumn";
-            this.sensorVauleDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sensorVauleDataGridViewTextBoxColumn.Width = 150;
+            this.alarmLogsDataGridView.AllowUserToAddRows = false;
+            this.alarmLogsDataGridView.AllowUserToDeleteRows = false;
+            this.alarmLogsDataGridView.AutoGenerateColumns = false;
+            this.alarmLogsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.alarmLogsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.alarmLogsDataGridView.DataSource = this.alarmLogsBindingSource;
+            this.alarmLogsDataGridView.Location = new System.Drawing.Point(21, 78);
+            this.alarmLogsDataGridView.Name = "alarmLogsDataGridView";
+            this.alarmLogsDataGridView.ReadOnly = true;
+            this.alarmLogsDataGridView.RowHeadersWidth = 123;
+            this.alarmLogsDataGridView.RowTemplate.Height = 46;
+            this.alarmLogsDataGridView.Size = new System.Drawing.Size(1633, 736);
+            this.alarmLogsDataGridView.TabIndex = 2;
             // 
-            // thresholdDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.thresholdDataGridViewTextBoxColumn.DataPropertyName = "threshold";
-            this.thresholdDataGridViewTextBoxColumn.HeaderText = "threshold";
-            this.thresholdDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.thresholdDataGridViewTextBoxColumn.Name = "thresholdDataGridViewTextBoxColumn";
-            this.thresholdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.thresholdDataGridViewTextBoxColumn.Width = 150;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "sensorName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Sensor";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 15;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 300;
             // 
-            // dateTimeDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.dateTimeDataGridViewTextBoxColumn.DataPropertyName = "dateTime";
-            this.dateTimeDataGridViewTextBoxColumn.HeaderText = "dateTime";
-            this.dateTimeDataGridViewTextBoxColumn.MinimumWidth = 8;
-            this.dateTimeDataGridViewTextBoxColumn.Name = "dateTimeDataGridViewTextBoxColumn";
-            this.dateTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateTimeDataGridViewTextBoxColumn.Width = 150;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "sensorVaule";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Vaule";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 15;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "threshold";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Threshold";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 15;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "dateTime";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Date & Time";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 15;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 300;
             // 
             // alarmLog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(19F, 37F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 692);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1849, 1280);
+            this.Controls.Add(this.alarmLogsDataGridView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.Name = "alarmLog";
             this.Text = "alarmLog";
             this.Load += new System.EventHandler(this.alarmLog_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mAS_TEAM_3_477DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.alarmLogBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alarmLogsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.alarmLogsDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,13 +215,14 @@
         private System.Windows.Forms.ToolStripMenuItem sensorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sensorToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem sensorToolStripMenuItem2;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private MAS_TEAM_3_477DataSet mAS_TEAM_3_477DataSet;
-        private System.Windows.Forms.BindingSource alarmLogBindingSource;
-        private MAS_TEAM_3_477DataSetTableAdapters.alarmLogTableAdapter alarmLogTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sensorNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sensorVauleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn thresholdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateTimeDataGridViewTextBoxColumn;
+        private MAS_TEAM_3_477DataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.BindingSource alarmLogsBindingSource;
+        private MAS_TEAM_3_477DataSetTableAdapters.alarmLogsTableAdapter alarmLogsTableAdapter;
+        private System.Windows.Forms.DataGridView alarmLogsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

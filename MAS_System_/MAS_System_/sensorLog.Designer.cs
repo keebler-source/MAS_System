@@ -39,7 +39,7 @@
             this.sensorLogsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mAS_TEAM_3_477DataSet = new MAS_System_.MAS_TEAM_3_477DataSet();
             this.alarmLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.alarmLogTableAdapter = new MAS_System_.MAS_TEAM_3_477DataSetTableAdapters.alarmLogTableAdapter();
+            
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.sensorNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sensorValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -142,7 +142,6 @@
             // 
             // alarmLogTableAdapter
             // 
-            this.alarmLogTableAdapter.ClearBeforeFill = true;
             // 
             // dataGridView1
             // 
@@ -345,7 +344,7 @@
         private System.Windows.Forms.BindingSource sensorLogsBindingSource;
         private MAS_TEAM_3_477DataSet mAS_TEAM_3_477DataSet;
         private System.Windows.Forms.BindingSource alarmLogBindingSource;
-        private MAS_TEAM_3_477DataSetTableAdapters.alarmLogTableAdapter alarmLogTableAdapter;
+        
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource humiditySensorBindingSource;
         private MAS_TEAM_3_477DataSetTableAdapters.humiditySensorTableAdapter humiditySensorTableAdapter;

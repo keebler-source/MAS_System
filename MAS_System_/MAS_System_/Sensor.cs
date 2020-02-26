@@ -432,7 +432,7 @@ namespace MAS_System_
                             //getting the date and time 
 
                             //adding all current vars to the data base 
-                            cmd.Parameters.AddWithValue("@sensorName", smokeLvlTxt.Text.Trim());
+                            cmd.Parameters.AddWithValue("@sensorName", smokeLbl.Text.Trim());
                             cmd.Parameters.AddWithValue("@sensorVaule", smokeLvlTxt.Text.Trim());
                             cmd.Parameters.AddWithValue("@threshold", smokeThresh);
                             cmd.Parameters.AddWithValue("@dateTime", dateTime.ToString());
